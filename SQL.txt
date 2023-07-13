@@ -1,0 +1,9 @@
+create table nkc(
+id int primary key auto_increment,
+name varchar(20),
+mobile1 int,
+mobile2 int,
+mobile3 int,
+birth varchar(30),
+type varchar(30)
+);
