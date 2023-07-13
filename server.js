@@ -1,14 +1,14 @@
 const express = require('express');
-const bodyParser = require('body-parser');
+//const bodyParser = require('body-parser');
 const app = express();
-var cors = require('cors');
+//var cors = require('cors');
 const port = 3000;
 const db = require('./db');
 
 app.use(express.json());
-app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(cors());
+//app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({ extended: true }));
 
 app.listen(port, () => console.log(`Server2 listening on port ${port}`));
 
