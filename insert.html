@@ -242,20 +242,33 @@
         }
         function inputCheck(el) {
             event.preventDefault();
-            let name=document.getElementById("name");
-            let birth=document.getElementById("resno");
-            let phone1=document.getElementById("phone1");
-            let phone2=document.getElementById("phone2");
-            let phone3=document.getElementById("phone3");
-            let type=document.getElementById("join_type");
-            let checked=document.getElementById("agree");
-            if(checked.checked==false){
-                alert('개인정보 이용에 동의해 주세요');
-            }
+            const name=document.getElementById("name");
+            const birth=document.getElementById("resno");
+            const phone1=document.getElementById("phone1");
+            const phone2=document.getElementById("phone2");
+            const phone3=document.getElementById("phone3");
+            const type=document.getElementById("join_type");
+            const checked=document.getElementById("agree");
             if(name.value==''){
                 alert('이름을 작성해 주세요');
+                name.focus();
+            }else if(birth.value==''){
+                alert('생년월일을 작성해 주세요');
+                birth.focus();
+            }else if(phone1.value==''||phone2.value==''||phone3.value==''){
+                alert('휴대전화번호를 입력해 주세요');
+                phone1.focus();
+            }else if(checked.checked==false){
+                alert('개인정보 이용에 동의해 주세요');
+                checked.focus();
+            }else{
+                const data=[name.value,birth.value,phone1.value,phone2.value,phone3.value,type.value];
+                try{
+                    fetch('louk342.iptime.org/insertS', data).then((res) => res.text()).then(console.log);
+                }catch{
+                    alert('오류가 발생했습니다. 잠시 후에 다시 시도해 주세요')
+                }
             }
-            alert();
         }
     </script>
 </body>
