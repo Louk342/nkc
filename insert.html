@@ -11,6 +11,7 @@
         @import url(http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
         @import url(http://fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
         @import url(http://fonts.googleapis.com/earlyaccess/nanumpenscript.css);
+
         * {
             box-sizing: border-box;
             margin: 0 auto;
@@ -163,29 +164,30 @@
 
         </div>
 
-        <form name="frm" action="" method="post" enctype="multipart/form-data" onsubmit="return inputCheck(this);" class="simple_wrap">
+        <form name="frm" action="" method="post" enctype="multipart/form-data" onsubmit="return inputCheck(this);"
+            class="simple_wrap">
             <input type="hidden" name="mode" value="insert">
             <div class="simple_box">
                 <h4>이름 <span>*</span></h4>
-                <input class="" name="name" type="text" value="" placeholder="신청자 이름">
+                <input class="" id="name" name="name" type="text" value="" placeholder="신청자 이름">
             </div>
 
             <div class="simple_box">
                 <h4>생년월일 <span>*</span></h4>
-                <input name="resno" type="number" value="" oninput="handleOnInput(this, 6)" placeholder="ex) 900312"
+                <input name="resno" id="resno" type="number" value="" oninput="handleOnInput(this, 6)" placeholder="ex) 900312"
                     onkeyup="if(this.value.length==6) {this.form.phone.focus();}">
             </div>
 
             <div class="simple_box number_box">
                 <h4>전화번호 <span>*</span></h4>
                 <div>
-                    <input type="number" value="" name="phone" size="5" oninput="handleOnInput(this, 3)" class="subt"
+                    <input type="number" value="" id="phone1" name="phone1" size="5" oninput="handleOnInput(this, 3)" class="subt"
                         placeholder="010" onkeyup="if(this.value.length==3) {this.form.phone2.focus();}">
                     <p>-</p>
-                    <input type="number" value="" name="phone2" size="5" oninput="handleOnInput(this, 4)" class="subt"
+                    <input type="number" value="" id="phone2" name="phone2" size="5" oninput="handleOnInput(this, 4)" class="subt"
                         placeholder="1234" onkeyup="if(this.value.length==4) {this.form.phone3.focus();}">
                     <p>-</p>
-                    <input type="number" value="" name="phone3" size="5" oninput="handleOnInput(this, 4)" class="subt"
+                    <input type="number" value="" id="phone3" name="phone3" size="5" oninput="handleOnInput(this, 4)" class="subt"
                         placeholder="5678">
                 </div>
             </div>
@@ -224,7 +226,7 @@
             </div>
 
             <div class="simple_right">
-                <input class="" type="checkbox" name="agree" value="y">
+                <input class="" type="checkbox" id="agree" name="agree" value="y">
                 <label>개인정보 수집 및 이용에 동의합니다.</label>
             </div>
             <button class="simple_box" style="height: 100px;">사전예약하기</button>
@@ -237,6 +239,23 @@
             if (el.value.length > maxlength) {
                 el.value = el.value.substr(0, maxlength);
             }
+        }
+        function inputCheck(el) {
+            event.preventDefault();
+            let name=document.getElementById("name");
+            let birth=document.getElementById("resno");
+            let phone1=document.getElementById("phone1");
+            let phone2=document.getElementById("phone2");
+            let phone3=document.getElementById("phone3");
+            let type=document.getElementById("join_type");
+            let checked=document.getElementById("agree");
+            if(checked.checked==false){
+                alert('개인정보 이용에 동의해 주세요');
+            }
+            if(name.value==''){
+                alert('이름을 작성해 주세요');
+            }
+            alert();
         }
     </script>
 </body>
