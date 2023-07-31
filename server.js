@@ -1,20 +1,22 @@
 const express = require('express');
-//const bodyParser = require('body-parser');
 const app = express();
-//var cors = require('cors');
 const port = 3000;
 const db = require('./db');
-
-app.use(express.json());
-//app.use(cors());
-//app.use(bodyParser.json());
-//app.use(bodyParser.urlencoded({ extended: true }));
+const bodyParser = require('body-parser')
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended:true}))
+//app.use(express.json());
 
 app.listen(port, () => console.log(`Server2 listening on port ${port}`));
 
-app.post('/insertS', (req, res) => {
-  const values = req.body.values;
-  const insertQuery = `INSERT INTO nkc (name,mobile1,mobile2,mobile3,birth,type)VALUES (?,?,?,?,?,?)`;
+app.get('', (req, res) => { res.sendFile(__dirname + '/index.html'); })
+app.get('/insert', (req, res) => { res.sendFile(__dirname + '/insert.html'); })
+app.get('/admin', (req, res) => { res.sendFile(__dirname + '/admin.html'); })
+
+app.post('/insert', (req, res) => {
+  const values = req;
+  console.log(values);
+  /* const insertQuery = `INSERT INTO nkc (name,mobile1,mobile2,mobile3,birth,type)VALUES (?,?,?,?,?,?)`;
   const queries = values.map((value, index) => {
     return [index + 1, value];
   });
@@ -38,7 +40,7 @@ app.post('/insertS', (req, res) => {
       }
       res.status(200).send(`Inserted: ${values.join(',')}`);
     });
-  });
+  }); */
 });
 
 app.post('/adminS', (req, res) => {

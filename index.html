@@ -41,11 +41,6 @@
             opacity: 0.8;
         }
     </style>
-    <script type="text/javascript">
-        document.getElementById("buttonC").addEventListener("click", function () {
-            window.location.href = "https://www.google.com";
-        });
-    </script>
 </head>
 
 <body style="line-height: 1; margin: 0px;">
@@ -59,7 +54,7 @@
         <div>
             <h1>갤럭시 <b>Z플립5</b><br />사전예약 이벤트!</h1>
         </div>
-        <div style="padding: 20px;"><img src="./img/flip5_1.png" style=" max-width: 100%;" /></div>
+        <div style="padding: 20px;"><img src="https://images.samsung.com/kdp/static/mkt/smartphones/galaxy-z-flip5/galaxy-z-flip5-highlights-kv-a.jpg?imbypass=true" style=" max-width: 100%;"/></div>
         <h1>실시간 사전예약 현황</h1>
         <marquee direction="up" scrollamount="1" height="100" style="font-size:small; background-color: white; border-radius: 15px;">
             <table border="0" cellpadding="0" cellspacing="10" align="center">
@@ -170,6 +165,11 @@
             </table>
         </marquee>
         <div id="buttonC" class="button"><h2 style="margin: 0px; color: white;">예약하기</h2></div>
+        <script>
+            document.getElementById("buttonC").addEventListener("click", function() {
+                window.location.href = "/insert";
+            });
+        </script>
         <h2>매장문의</h2><b style="font-size: large;">MOB : 010-7705-9034<br/>TEL : 031-211-5518</b>
     </div>
 </body>

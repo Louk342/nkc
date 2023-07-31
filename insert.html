@@ -2,7 +2,8 @@
 
 <head>
     <title>예약신청</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTP-8">
+    <meta http-equiv="Content-Type" content="text/html"">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
     <style type="text/css">
@@ -155,7 +156,7 @@
     </style>
 </head>
 
-<body style="">
+<body>
     <div class="over">
         <div style="width: 100%; background-color: #3a3a3a; height: 15px;"></div>
         <div class="simple_title">
@@ -164,8 +165,7 @@
 
         </div>
 
-        <form name="frm" action="" method="post" enctype="multipart/form-data" onsubmit="return inputCheck(this);"
-            class="simple_wrap">
+        <form name="frm" action="" method="post" enctype="multipart/form-data" class="simple_wrap">
             <input type="hidden" name="mode" value="insert">
             <div class="simple_box">
                 <h4>이름 <span>*</span></h4>
@@ -229,7 +229,7 @@
                 <input class="" type="checkbox" id="agree" name="agree" value="y">
                 <label>개인정보 수집 및 이용에 동의합니다.</label>
             </div>
-            <button class="simple_box" style="height: 100px;">사전예약하기</button>
+            <button class="simple_box" style="height: 100px" onclick="inputCheck">사전예약하기</button>
         </form>
     </div>
     <div>
@@ -263,11 +263,13 @@
                 checked.focus();
             }else{
                 const data=[name.value,birth.value,phone1.value,phone2.value,phone3.value,type.value];
+                const phone=[phone1.value+phone2.value+phone3.value]
                 try{
-                    fetch('louk342.iptime.org/insertS', data).then((res) => res.text()).then(console.log);
+                    sendPost('localhost/insert', { name:name.value,birth:birth.value,phone:phone,type:type.value });
                 }catch{
                     alert('오류가 발생했습니다. 잠시 후에 다시 시도해 주세요')
                 }
+                
             }
         }
     </script>
