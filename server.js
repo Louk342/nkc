@@ -20,7 +20,7 @@ app.post('/insertS', async (req, res) => {
     const values = [req.body.name, phone, req.body.birth, req.body.join_type];
 
     await db.query(sql, values); // 쿼리 실행 및 결과 대기
-
+    
     res.send(`
       <script>
         alert('예약이 완료되었습니다!');
@@ -45,7 +45,6 @@ app.post('/admin', async (req, res) => {
     try {
       const sql = 'SELECT name, phone, birth, type FROM nkc';
       const result = await db.query(sql); // 쿼리 실행 및 결과 대기
-
       let table = '<table>'; // 결과 값을 출력하기 위한 Table 태그 초기화
       table += '<tr>';
       table += `<th>${'Name'}</th>`;
