@@ -2,14 +2,17 @@ const express = require('express');
 const app = express();
 const port = 80;
 const db = require('./db');
+const cors = require('cors');
 const bodyParser = require('body-parser');
-
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.urlencoded({ extended: true }));
 
 app.listen(port, () => console.log(`Server2 listening on port ${port}`));
 
-app.get('', (req, res) => { res.sendFile(__dirname + '/index.html'); })
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('img'));
+app.use(cors());
+
+app.get('/', (req, res) => { res.sendFile(__dirname + '/index.html'); })
 app.get('/insert', (req, res) => { res.sendFile(__dirname + '/insert.html'); })
 app.get('/admin', (req, res) => { res.sendFile(__dirname + '/admin.html'); })
 
