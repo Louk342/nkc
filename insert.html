@@ -191,10 +191,16 @@
             </div>
             <div class="simple_box radio_box">
                 <h4>가입조건 <span>*</span></h4>
-                <div><input type="radio" value="신규가입" id="a1" name="join_type" checked=""> <label for="a1">신규가입</label>
-                </div>
+                <div><input type="radio" value="신규가입" id="a1" name="join_type" checked=""> <label for="a1">신규가입</label></div>
                 <div><input type="radio" value="번호이동" id="a2" name="join_type"> <label for="a2">번호이동</label></div>
                 <div><input type="radio" value="기기변경" id="a3" name="join_type"> <label for="a3">기기변경</label></div>
+            </div>
+            <div class="simple_box radio_box">
+                <h4>기종선택<span>*</span></h4>
+                <div><input type="radio" value="iphone15" name="model" onclick="showInput(this)" checked=""><label> 아이폰15</label></div>
+                <div><input type="radio" value="iphone15pro" name="model" onclick="showInput(this)"><label> 아이폰15프로</label></div>
+                <div><input type="radio" value="other" name="model" onclick="showInput(this)"><label> 기타</label></div>
+                <input type="text" id="otherInput" placeholder="원하시는 모델명을 입력해 주세요" disabled>
             </div>
             <div class="simple_box">
                 <h4>사전예약 신청 절차 및 유의사항<span></span></h4>
@@ -272,6 +278,11 @@
             el.value = el.value.substr(0, maxlength);
         }
     }
+
+    function showInput(radio) {
+            const otherInput = document.getElementById("otherInput");
+            otherInput.disabled = radio.value !== "other";
+        }
 </script>
 
 </html>
