@@ -18,9 +18,11 @@ app.get('/admin', (req, res) => { res.sendFile(__dirname + '/admin.html'); })
 
 app.post('/insertS', async (req, res) => {
   const phone = req.body.phone + req.body.phone2 + req.body.phone3;
+  var model = req.body.model;
+  if(model=="other")model=req.body.othermodel;
   try {
-    const sql = 'INSERT INTO nkc (name, phone, birth, type) VALUES (?, ?, ?, ?)';
-    const values = [req.body.name, phone, req.body.birth, req.body.join_type];
+    const sql = 'INSERT INTO nkc (name, phone, birth, type, model) VALUES (?, ?, ?, ?, ?)';
+    const values = [req.body.name, phone, req.body.birth, req.body.join_type, model];
 
     await db.query(sql, values); // 쿼리 실행 및 결과 대기
     
@@ -46,7 +48,7 @@ app.post('/admin', async (req, res) => {
   const correct_password = 'ha80558055!';
   if (password === correct_password) {
     try {
-      const sql = 'SELECT name, phone, birth, type FROM nkc';
+      const sql = 'SELECT name, phone, birth, type ,model FROM nkc';
       const result = await db.query(sql); // 쿼리 실행 및 결과 대기
       let table = '<table>'; // 결과 값을 출력하기 위한 Table 태그 초기화
       table += '<tr>';
@@ -54,6 +56,7 @@ app.post('/admin', async (req, res) => {
       table += `<th>${'Phone'}</th>`;
       table += `<th>${'Birth'}</th>`;
       table += `<th>${'Type'}</th>`;
+      table += `<th>${'Model'}</th>`;
       table += '</tr>';
 
       result.forEach(function (item) {
@@ -62,6 +65,7 @@ app.post('/admin', async (req, res) => {
         table += `<td>${item.phone || ''}</td>`;
         table += `<td>${item.birth || ''}</td>`;
         table += `<td>${item.type || ''}</td>`;
+        table += `<td>${item.model || ''}</td>`;
         table += '</tr>';
       });
 

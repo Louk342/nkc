@@ -3,5 +3,6 @@ id int primary key auto_increment,
 name varchar(20),
 phone varchar(30),
 birth varchar(30),
-type varchar(30)
+type varchar(30),
+model varchar(30)
 );
