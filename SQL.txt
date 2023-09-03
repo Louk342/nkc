@@ -4,5 +4,6 @@ name varchar(20),
 phone varchar(30),
 birth varchar(30),
 type varchar(30),
-model varchar(30)
+model varchar(30),
+receive varchar(30)
 );
