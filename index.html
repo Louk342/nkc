@@ -2,146 +2,153 @@
 <html lang="ko">
 
 <head>
-    <link rel="favicon" href="./img/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0">
-    <meta charset="UTF-8">
-    <title>KT 아주대점</title>
-    <style>
-        .body {
-            font-family: 'NanumSquare';
-            background-color: #EEEEEE;
-            margin: 5px auto 5px auto;
-            width: 100%;
-            padding: 10px;
-            text-align: center;
-        }
+  <link rel="favicon" href="./img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0">
+  <meta charset="UTF-8">
+  <title>KT 아주대점</title>
+  <style>
+    .body {
+      font-family: 'NanumSquare';
+      background-color: #EEEEEE;
+      margin: 0px auto 5px auto;
+      padding: 10px;
+      text-align: center;
+    }
 
-        .nav-bar {
-            border-top: 3px solid #ff1e27;
-            display: flex;
-            justify-content: space-around;
-            list-style: none;
-            padding: 0px;
-            height: 50px;
-            margin: 0px;
-        }
+    .nav-bar {
+      border-top: 3px solid #ff1e27;
+      display: flex;
+      justify-content: space-around;
+      list-style: none;
+      padding: 0px;
+      height: 50px;
+      margin: 0px;
+    }
 
-        .button {
-            background-color: #ff0000;
-            padding: 20px;
-            max-width: 170px;
-            border-radius: 15px;
-            margin: 10px auto;
-            cursor: pointer;
-        }
-        b{
-            color: red;
-        }
-        .button:hover {
-            opacity: 0.8;
-        }
-    </style>
+    .button {
+      background-color: #ff0000;
+      padding: 20px;
+      max-width: 170px;
+      border-radius: 15px;
+      margin: 10px auto;
+      cursor: pointer;
+    }
+
+    b {
+      color: red;
+    }
+
+    .button:hover {
+      opacity: 0.8;
+    }
+  </style>
 </head>
 
 <body style="line-height: 1; margin: 0px;">
-    <nav style="margin: -px;">
-        <div class="nav-bar">
-            <img style="margin: auto 10px auto 10px;" src="https://cfm.kt.com/images/v2/layout/gnb-ktlogo.png">
-            <h3>아주대 공식 대리점</h3>
-        </div>
-    </nav>
-    <div class="body">
-        <div>
-            <h1>갤럭시 <b>폴더블 시리즈 5</b><br />출시기념 이벤트!</h1>
-        </div>
-        
-            <div style="text-align: center; padding: 10px; margin: 0px 0%; border-radius: 20px; background-color: #FFFFFF;"><img src="http://ajoodae.com/banner.jpg" style=" max-width: 90%;"/></div>
-            <!--
-            <h1>실시간 사전예약 현황</h1>
-        <marquee direction="up" scrollamount="1" height="100" style="font-size:small; background-color: white; border-radius: 15px;">
-            <table border="0" cellpadding="0" cellspacing="10" align="center">
-                <tbody id="fakeData">
-                </tbody>
-            </table>
-            
-            <script>
-                // 현재 날짜를 가져오는 함수
-                function getCurrentDate() {
-                  const today = new Date();
-                  const year = today.getFullYear();
-                  const month = String(today.getMonth() + 1).padStart(2, '0');
-                  const day = String(today.getDate()).padStart(2, '0');
-                  return `${year}-${month}-${day}`;
-                }
-                // 이름 생성 함수 (랜덤으로 성씨와 이름 조합)
-                function generateName() {
-                  const lastNames = ['김', '이', '박', '최', '정', '한', '지', '오', '윤', '신'];
-                  const firstNames = ['민준', '서연', '하준', '예은', '건우', '민서', '서준', '윤서', '준서', '지민'];
-                  const randomLastName = lastNames[Math.floor(Math.random() * lastNames.length)];
-                  const randomFirstName = firstNames[Math.floor(Math.random() * firstNames.length)];
-                  return randomLastName + '**';
-                }
-              
-                // 랜덤 전화번호 생성 함수
-                function generatePhoneNumber() {
-                  const randomNumber = () => Math.floor(Math.random() * 10000).toString().padStart(4, '0');
-                  return `010 - **** - ${randomNumber()}`;
-                }
-              
-                // 모델 이름 생성 함수 (갤럭시Z플립5로 고정)
-                function generateModel() {
-                  return '갤럭시Z플립5';
-                }
-              
-                // 하루에 생성할 가짜 데이터 수를 랜덤으로 설정하는 함수 (1부터 5까지 랜덤)
-                function getRandomDataCount() {
-                  return Math.floor(Math.random() * 5) + 1;
-                }
-              
-                // 가짜 데이터 추가 함수
-                function addFakeData() {
-                  const tableBody = document.getElementById('fakeData');
-                  const startDate = new Date(2023, 7, 1); // 8월 1일 (월은 0부터 시작하므로 7로 설정)
-                  const currentDate = new Date();
-                  currentDate.setDate(currentDate.getDate() + 1); // 오늘 날짜를 포함하기 위해 하루 추가
-              
-                  while (startDate <= currentDate) {
-                    const dataCount = getRandomDataCount(); // 하루에 생성할 가짜 데이터 수
-                    for (let i = 0; i < dataCount; i++) {
-                      const name = generateName();
-                      const phone = generatePhoneNumber();
-                      const model = generateModel();
-              
-                      const newRow = document.createElement('tr');
-                      newRow.innerHTML = `
-                        <td class="list_date_new">${startDate.getFullYear()}-${String(startDate.getMonth() + 1).padStart(2, '0')}-${String(startDate.getDate()).padStart(2, '0')}</td>
-                        <td class="list_name_new">${name}</td>
-                        <td class="list_phone">${phone}</td>
-                        <td class="list_model_new">${model}</td>
-                      `;
-              
-                      tableBody.appendChild(newRow);
-                    }
-              
-                    startDate.setDate(startDate.getDate() + 1); // 다음 날짜로 이동
-                  }
-                }
-              
-                // 가짜 데이터 추가 함수 호출
-                addFakeData();
-              </script>
-              
-        </marquee>
-        <div id="buttonC" class="button"><h2 style="margin: 0px; color: white;">예약하기</h2></div>
-        <script>
-            document.getElementById("buttonC").addEventListener("click", function() {
-                window.location.href = "/insert";
-            });
-        </script>
-        -->
-        <h2>매장문의</h2><b style="font-size: large;">MOB : 010-7705-9034<br/>TEL : 031-211-5518</b>
+  <nav style="margin: -px;">
+    <div class="nav-bar">
+      <img style="margin: auto 10px auto 10px;" src="https://cfm.kt.com/images/v2/layout/gnb-ktlogo.png">
+      <h3>아주대 공식 대리점</h3>
     </div>
+  </nav>
+  <img id="randomImage" src="" style=" max-width: 100%;" />
+  <div class="body">
+    <div>
+      <h1>Comming <b>Soon</b><br /></h1>
+    </div>
+
+
+    <h1>최신 사전예약 현황</h1>
+    <marquee direction="up" scrollamount="1" height="100"
+      style="font-size:small; background-color: white; border-radius: 15px;">
+      <table border="0" cellpadding="0" cellspacing="10" align="center">
+        <tbody id="fakeData">
+        </tbody>
+      </table>
+    </marquee>
+    <div id="buttonC" class="button">
+      <h2 style="margin: 0px; color: white;">예약하기</h2>
+    </div>
+    <h2>매장문의</h2><b style="font-size: large;">MOB : 010-7705-9034<br />TEL : 031-211-5518</b>
+  </div>
 </body>
+
+<script>
+  const imageUrls = [
+    "http://ajoodae.com/banner1.jpg",
+    "http://ajoodae.com/banner2.jpg"
+  ];
+
+  const randomIndex = Math.floor(Math.random() * imageUrls.length);   // 랜덤한 이미지 URL 선택
+  const randomImageUrl = imageUrls[randomIndex];
+  const imageElement = document.getElementById("randomImage");  // 이미지 요소 가져오기
+  imageElement.src = randomImageUrl;   // 이미지의 src 속성 설정
+
+  // 현재 날짜를 가져오는 함수
+  function getCurrentDate() {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
+  // 이름 생성 함수 (랜덤으로 성씨와 이름 조합)
+  function generateName() {
+    const lastNames = ['김', '이', '박', '최', '정', '한', '지', '오', '윤', '신'];
+    const firstNames = ['민준', '서연', '하준', '예은', '건우', '민서', '서준', '윤서', '준서', '지민'];
+    const randomLastName = lastNames[Math.floor(Math.random() * lastNames.length)];
+    const randomFirstName = firstNames[Math.floor(Math.random() * firstNames.length)];
+    return randomLastName + '**';
+  }
+
+  // 랜덤 전화번호 생성 함수
+  function generatePhoneNumber() {
+    const randomNumber = () => Math.floor(Math.random() * 10000).toString().padStart(4, '0');
+    return `010 - **** - ${randomNumber()}`;
+  }
+
+  // 모델 이름 생성 함수
+  function generateModel() {
+    const models = ["아이폰15", "아이폰15프로", "기타"];
+    return models[Math.floor(Math.random() * models.length)];
+  }
+
+  // 가짜 데이터 추가 함수
+  function addFakeData() {
+    const tableBody = document.getElementById('fakeData');
+    const startDate = new Date(2023, 8, 1); // 8월 1일 (월은 0부터 시작하므로 7로 설정)
+    const currentDate = new Date();
+    currentDate.setDate(currentDate.getDate() + 1); // 오늘 날짜를 포함하기 위해 하루 추가
+
+    while (startDate <= currentDate) {
+      const dataCount = Math.floor(Math.random() * 5) + 1; // 하루에 생성할 가짜 데이터 수
+      for (let i = 0; i < dataCount; i++) {
+        const name = generateName();
+        const phone = generatePhoneNumber();
+        const model = generateModel();
+
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+                  <td class="list_date_new">${startDate.getFullYear()}-${String(startDate.getMonth() + 1).padStart(2, '0')}-${String(startDate.getDate()).padStart(2, '0')}</td>
+                  <td class="list_name_new">${name}</td>
+                  <td class="list_phone">${phone}</td>
+                  <td class="list_model_new">${model}</td>
+                `;
+
+        tableBody.appendChild(newRow);
+      }
+
+      startDate.setDate(startDate.getDate() + 1); // 다음 날짜로 이동
+    }
+  }
+
+  // 가짜 데이터 추가 함수 호출
+  addFakeData();
+
+  document.getElementById("buttonC").addEventListener("click", function () {
+    window.location.href = "/insert";
+  });
+</script>
 
 </html>
