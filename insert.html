@@ -152,41 +152,6 @@
             }
         }
     </style>
-    <script language=javascript>
-        function inputCheck(frm) {
-            
-            if (frm.name.value == "") {
-                alert('이름을 작성해 주세요');
-                frm.name.focus();
-                return false;
-            }
-            if(frm.birth.value==""){
-                alert('생년월일을 작성해 주세요');
-                frm.birth.focus();
-                return false;
-            }
-            if (frm.phone.value == "") {
-                alert('연락가능한 번호를 입력해주세요.');
-                frm.phone.focus();
-                return false;
-            }
-            if (frm.phone2.value == "") {
-                alert('연락가능한 번호를 입력해주세요.');
-                frm.phone2.focus();
-                return false;
-            }
-            if (frm.phone3.value == "") {
-                alert('연락가능한 번호를 입력해주세요.');
-                frm.phone3.focus();
-                return false;
-            }
-            if (frm.agree.checked == false) {
-                alert('개인정보수집 및 이용에 동의해 주세요.');
-                frm.agree.focus();
-                return false;
-            }
-        }
-    </script>
 </head>
 
 <body>
@@ -198,7 +163,8 @@
 
         </div>
 
-        <form name="frm" action="http://ajoodae.com/insertS" onSubmit="return inputCheck(this);" method="post" class="simple_wrap">
+        <form name="frm" action="http://ajoodae.com/insertS" onSubmit="return inputCheck(this);" method="post"
+            class="simple_wrap">
             <input type="hidden" name="mode" value="insert">
             <div class="simple_box">
                 <h4>이름 <span>*</span></h4>
@@ -213,11 +179,16 @@
             <div class="simple_box number_box">
                 <h4>전화번호 <span>*</span></h4>
                 <div>
-                <input type="number" value="" name="phone" size="5" oninput='handleOnInput(this, 3)' class="subt" placeholder="010" onkeyup="if(this.value.length==3) {this.form.phone2.focus();}"><p>-</p>
-                <input type="number" value="" name="phone2" size="5" oninput='handleOnInput(this, 4)' class="subt" placeholder="1234" onkeyup="if(this.value.length==4) {this.form.phone3.focus();}"><p>-</p>
-                <input type="number" value="" name="phone3" size="5" oninput='handleOnInput(this, 4)' class="subt" placeholder="5678">
+                    <input type="number" value="" name="phone" size="5" oninput='handleOnInput(this, 3)' class="subt"
+                        placeholder="010" onkeyup="if(this.value.length==3) {this.form.phone2.focus();}">
+                    <p>-</p>
+                    <input type="number" value="" name="phone2" size="5" oninput='handleOnInput(this, 4)' class="subt"
+                        placeholder="1234" onkeyup="if(this.value.length==4) {this.form.phone3.focus();}">
+                    <p>-</p>
+                    <input type="number" value="" name="phone3" size="5" oninput='handleOnInput(this, 4)' class="subt"
+                        placeholder="5678">
                 </div>
-        </div>
+            </div>
             <div class="simple_box radio_box">
                 <h4>가입조건 <span>*</span></h4>
                 <div><input type="radio" value="신규가입" id="a1" name="join_type" checked=""> <label for="a1">신규가입</label>
@@ -256,17 +227,51 @@
                 <label>개인정보 수집 및 이용에 동의합니다.</label>
             </div>
             <button class="simple_box" style="height: 100px" onclick="inputCheck">사전예약하기</button>
-            <script>
-                function handleOnInput(el, maxlength) {
-                    if (el.value.length > maxlength) {
-                        el.value = el.value.substr(0, maxlength);
-                    }
-                }
-            </script>
         </form>
     </div>
     <div>
     </div>
 </body>
+<script>
+    function inputCheck(frm) {
+
+        if (frm.name.value == "") {
+            alert('이름을 작성해 주세요');
+            frm.name.focus();
+            return false;
+        }
+        if (frm.birth.value == "") {
+            alert('생년월일을 작성해 주세요');
+            frm.birth.focus();
+            return false;
+        }
+        if (frm.phone.value == "") {
+            alert('연락가능한 번호를 입력해주세요.');
+            frm.phone.focus();
+            return false;
+        }
+        if (frm.phone2.value == "") {
+            alert('연락가능한 번호를 입력해주세요.');
+            frm.phone2.focus();
+            return false;
+        }
+        if (frm.phone3.value == "") {
+            alert('연락가능한 번호를 입력해주세요.');
+            frm.phone3.focus();
+            return false;
+        }
+        if (frm.agree.checked == false) {
+            alert('개인정보수집 및 이용에 동의해 주세요.');
+            frm.agree.focus();
+            return false;
+        }
+    }
+
+    function handleOnInput(el, maxlength) {
+        if (el.value.length > maxlength) {
+            el.value = el.value.substr(0, maxlength);
+        }
+    }
+</script>
 
 </html>
