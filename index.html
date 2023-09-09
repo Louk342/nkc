@@ -8,6 +8,13 @@
   <meta charset="UTF-8">
   <title>KT 아주대점</title>
   <style>
+    @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+    @import url(http://fonts.googleapis.com/earlyaccess/nanumbrushscript.css);
+    @import url(http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
+    @import url(http://fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
+    @import url(http://fonts.googleapis.com/earlyaccess/nanumpenscript.css);
+    @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+
     .body {
       font-family: 'NanumSquare';
       background-color: #EEEEEE;
@@ -37,6 +44,10 @@
 
     b {
       color: red;
+    }
+
+    .link{
+      font-family: 'Black Han Sans', sans-serif;
     }
 
     .button:hover {
@@ -69,12 +80,28 @@
     </marquee>
     <div id="buttonC" class="button">
       <h2 style="margin: 0px; color: white;">예약하기</h2>
+    </div style="font-family: " NanumSquare";">
+    <h2 style="text-align: left; padding-left: 20px;">매장문의</h2>
+    <div style="text-align: left;padding: 10px 20px; border-radius: 15px; background-color: white;">
+      <p style="font-size:larger; margin: 0px;">
+        📱 : 010-7705-9034 <b id="click">(Click)</b><br/><br/>
+        📞 : 031-211-5518 <b id="click">(Click)</b><br/><br/>
+        <a href="https://pf.kakao.com/_gxnKxcb" style="text-decoration: none;" ><img src="http://ajoodae.com/kakaoCH.png" style="max-width: 20px;" /><b id="link" style="color: black;"> : 카카오채널</b><b id="click">   (Click)</b></a><br/><br/>
+        <a href="https://blog.naver.com/ajoodae" style="text-decoration: none;"><img src="http://ajoodae.com/naverBlog.png" style="max-width: 20px;" /><b id="link" style="color: black;"> : 네이버 블로그</b><b id="click">   (Click)</b></a><br/><br/>
+        <a href="https://map.naver.com/p/search/kt%EC%95%84%EC%A3%BC%EB%8C%80%EC%A0%90/place/1128339994?placePath=?entry=pll&from=nx&fromNxList=true&c=14.00,0,0,0,dh" style="text-decoration: none;"><img src="http://ajoodae.com/naver.png" style="max-width: 20px;" /><b id="link" style="color: black;"> : 네이버지도</b><b id="click">   (Click)</b></a><br/>
+      </p>
     </div>
-    <h2>매장문의</h2><b style="font-size: large;">MOB : 010-7705-9034<br />TEL : 031-211-5518</b>
   </div>
 </body>
 
 <script>
+  var t = setInterval(function () {
+    var ele = document.getElementById('click');
+    ele.style.visibility = (ele.style.visibility == 'hidden' ? '' : 'hidden');
+  }, 200);
+
+
+
   const imageUrls = [
     "http://ajoodae.com/banner1.jpg",
     "http://ajoodae.com/banner2.jpg"
