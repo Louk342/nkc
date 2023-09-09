@@ -46,12 +46,22 @@
       color: red;
     }
 
-    .link{
+    .link {
       font-family: 'Black Han Sans', sans-serif;
     }
 
     .button:hover {
       opacity: 0.8;
+    }
+
+    .click {
+      animation: blink-effect 1s step-end infinite;
+    }
+
+    @keyframes blink-effect {
+      50% {
+        opacity: 0;
+      }
     }
   </style>
 </head>
@@ -84,21 +94,27 @@
     <h2 style="text-align: left; padding-left: 20px;">매장문의</h2>
     <div style="text-align: left;padding: 10px 20px; border-radius: 15px; background-color: white;">
       <p style="font-size:larger; margin: 0px;">
-        📱 : 010-7705-9034 <b id="click">(Click)</b><br/><br/>
-        📞 : 031-211-5518 <b id="click">(Click)</b><br/><br/>
-        <a href="https://pf.kakao.com/_gxnKxcb" style="text-decoration: none;" ><img src="http://ajoodae.com/kakaoCH.png" style="max-width: 20px;" /><b id="link" style="color: black;"> : 카카오채널</b><b id="click">   (Click)</b></a><br/><br/>
-        <a href="https://blog.naver.com/ajoodae" style="text-decoration: none;"><img src="http://ajoodae.com/naverBlog.png" style="max-width: 20px;" /><b id="link" style="color: black;"> : 네이버 블로그</b><b id="click">   (Click)</b></a><br/><br/>
-        <a href="https://map.naver.com/p/search/kt%EC%95%84%EC%A3%BC%EB%8C%80%EC%A0%90/place/1128339994?placePath=?entry=pll&from=nx&fromNxList=true&c=14.00,0,0,0,dh" style="text-decoration: none;"><img src="http://ajoodae.com/naver.png" style="max-width: 20px;" /><b id="link" style="color: black;"> : 네이버지도</b><b id="click">   (Click)</b></a><br/>
+        📱 : 010-7705-9034 <b class="click">(Click)</b><br /><br />
+        📞 : 031-211-5518 <b class="click">(Click)</b><br /><br />
+        <a href="https://pf.kakao.com/_gxnKxcb" style="text-decoration: none;"><img src="http://ajoodae.com/kakaoCH.png"
+            style="max-width: 20px;" /><b id="link" style="color: black;"> : 카카오채널</b><b class="click">
+            (Click)</b></a><br /><br />
+        <a href="https://blog.naver.com/ajoodae" style="text-decoration: none;"><img
+            src="http://ajoodae.com/naverBlog.png" style="max-width: 20px;" /><b id="link" style="color: black;"> : 네이버
+            블로그</b><b class="click"> (Click)</b></a><br /><br />
+        <a href="https://map.naver.com/p/search/kt%EC%95%84%EC%A3%BC%EB%8C%80%EC%A0%90/place/1128339994?placePath=?entry=pll&from=nx&fromNxList=true&c=14.00,0,0,0,dh"
+          style="text-decoration: none;"><img src="http://ajoodae.com/naver.png" style="max-width: 20px;" /><b id="link"
+            style="color: black;"> : 네이버지도</b><b class="click"> (Click)</b></a><br />
       </p>
     </div>
   </div>
 </body>
 
 <script>
-  var t = setInterval(function () {
+  /*var t = setInterval(function () {
     var ele = document.getElementById('click');
     ele.style.visibility = (ele.style.visibility == 'hidden' ? '' : 'hidden');
-  }, 200);
+  }, 200);*/
 
 
 
