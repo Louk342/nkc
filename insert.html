@@ -191,16 +191,36 @@
             </div>
             <div class="simple_box radio_box">
                 <h4>가입조건 <span>*</span></h4>
-                <div><input type="radio" value="신규가입" id="a1" name="join_type" checked=""> <label for="a1">신규가입</label></div>
+                <div><input type="radio" value="신규가입" id="a1" name="join_type" checked=""> <label for="a1">신규가입</label>
+                </div>
                 <div><input type="radio" value="번호이동" id="a2" name="join_type"> <label for="a2">번호이동</label></div>
                 <div><input type="radio" value="기기변경" id="a3" name="join_type"> <label for="a3">기기변경</label></div>
             </div>
             <div class="simple_box radio_box">
                 <h4>기종선택<span>*</span></h4>
-                <div><input type="radio" value="iphone15" name="model" onclick="showInput(this)" checked=""><label> 아이폰15</label></div>
-                <div><input type="radio" value="iphone15pro" name="model" onclick="showInput(this)"><label> 아이폰15프로</label></div>
-                <div><input type="radio" value="other" name="model" onclick="showInput(this)"><label> 기타</label></div>
-                <input type="text" id="otherInput" name="othermodel" placeholder="원하시는 모델명을 입력해 주세요" disabled>
+                <div><input type="radio" value="AIP15" name="model" onclick="showInput(this)" checked=""><label>
+                        아이폰15</label></div>
+                <div><input type="radio" value="AIP15PS" name="model" onclick="showInput(this)"><label>
+                        아이폰15플러스</label></div>
+                <div><input type="radio" value="AIP15P" name="model" onclick="showInput(this)"><label>
+                        아이폰15프로</label></div>
+                <div><input type="radio" value="AIP15PM" name="model" onclick="showInput(this)"><label>
+                        아이폰15프로맥스</label></div>
+                <!-- <div><input type="radio" value="other" name="model" onclick="showInput(this)"><label> 기타</label></div>
+                <input type="text" id="otherInput" name="othermodel" placeholder="원하시는 모델명을 입력해 주세요" disabled> -->
+            </div>
+            <div class="simple_box radio_box">
+                <h4>저장용량선택<span>*</span></h4>
+                <div><input type="radio" value="128GB" name="storage" onclick="showInput(this)" checked=""><label>
+                        128GB</label></div>
+                <div><input type="radio" value="256GB" name="storage" onclick="showInput(this)"><label>
+                        256GB</label></div>
+                <div><input type="radio" value="512GB" name="storage" onclick="showInput(this)"><label>
+                        512GB</label></div>
+                <div><input type="radio" value="1TB" name="storage" onclick="showInput(this)"><label>
+                        1TB</label></div>
+                <!-- <div><input type="radio" value="other" name="model" onclick="showInput(this)"><label> 기타</label></div>
+                <input type="text" id="otherInput" name="othermodel" placeholder="원하시는 모델명을 입력해 주세요" disabled> -->
             </div>
             <div class="simple_box radio_box">
                 <h4>수령방식<span>*</span></h4>
@@ -279,15 +299,13 @@
     }
 
     function handleOnInput(el, maxlength) {
-        if (el.value.length > maxlength) {
-            el.value = el.value.substr(0, maxlength);
-        }
+        if (el.value.length > maxlength) el.value = el.value.substr(0, maxlength);
     }
 
-    function showInput(radio) {
-            const otherInput = document.getElementById("otherInput");
-            otherInput.disabled = radio.value !== "other";
-        }
+    /* function showInput(radio) {
+        const otherInput = document.getElementById("otherInput");
+        otherInput.disabled = radio.value !== "other";
+    } */
 </script>
 
 </html>
