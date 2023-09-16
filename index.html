@@ -116,16 +116,17 @@
     var ele = document.getElementById('click');
     ele.style.visibility = (ele.style.visibility == 'hidden' ? '' : 'hidden');
   }, 200);
-
+  
   const imageUrls = [
     "http://ajoodae.com/banner1.jpg",
     "http://ajoodae.com/banner2.jpg"
-  ];*/
-
+  ];
+  
   const randomIndex = Math.floor(Math.random() * imageUrls.length);   // 랜덤한 이미지 URL 선택
   const randomImageUrl = imageUrls[randomIndex];
   const imageElement = document.getElementById("randomImage");  // 이미지 요소 가져오기
   imageElement.src = randomImageUrl;   // 이미지의 src 속성 설정
+  */
 
   // 현재 날짜를 가져오는 함수
   function getCurrentDate() {
