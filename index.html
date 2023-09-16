@@ -151,14 +151,14 @@
 
   // 모델 이름 생성 함수
   function generateModel() {
-    const models = ["아이폰15", "아이폰15프로", "기타"];
+    const models = ["아이폰15", "아이폰15플러스", "아이폰15프로", "아이폰15프로맥스"];
     return models[Math.floor(Math.random() * models.length)];
   }
 
   // 가짜 데이터 추가 함수
   function addFakeData() {
     const tableBody = document.getElementById('fakeData');
-    const startDate = new Date(2023, 8, 1); // 8월 1일 (월은 0부터 시작하므로 7로 설정)
+    const startDate = new Date(2023, 8, 14); // 8월 1일 (월은 0부터 시작하므로 7로 설정)
     const currentDate = new Date();
     currentDate.setDate(currentDate.getDate()); // 오늘 날짜를 포함하기 위해 하루 추가
 
