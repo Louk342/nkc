@@ -21,8 +21,8 @@ app.post('/insertS', async (req, res) => {
   var model = req.body.model;
   if (model == "other") model = req.body.othermodel;
   try {
-    const sql = 'INSERT INTO nkc (name, phone, birth, type, model, receive, storage) VALUES (?, ?, ?, ?, ?, ?, ?)';
-    const values = [req.body.name, phone, req.body.birth, req.body.join_type, model, req.body.receive, req.body.storage];
+    const sql = 'INSERT INTO nkc (name, phone, birth, type, model, receive, storage, color) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+    const values = [req.body.name, phone, req.body.birth, req.body.join_type, model, req.body.receive, req.body.storage, req.body.color];
 
     await db.query(sql, values); // 쿼리 실행 및 결과 대기
 
@@ -48,7 +48,7 @@ app.post('/admin', async (req, res) => {
   const correct_password = 'ha80558055!';
   if (password === correct_password) {
     try {
-      const sql = 'SELECT name, phone, birth, type, model, storage, receive FROM nkc';
+      const sql = 'SELECT name, phone, birth, type, model, storage ,color ,receive FROM nkc';
       const result = await db.query(sql); // 쿼리 실행 및 결과 대기
       let table = '<table>'; // 결과 값을 출력하기 위한 Table 태그 초기화
       table += '<tr>';
@@ -58,6 +58,7 @@ app.post('/admin', async (req, res) => {
       table += `<th>${'변경유형'}</th>`;
       table += `<th>${'희망모델'}</th>`;
       table += `<th>${'저장용량'}</th>`;
+      table += `<th>${'색상'}</th>`;
       table += `<th>${'수령방식'}</th>`;
       table += '</tr>';
 
@@ -69,6 +70,7 @@ app.post('/admin', async (req, res) => {
         table += `<td>${item.type || ''}</td>`;
         table += `<td>${item.model || ''}</td>`;
         table += `<td>${item.storage || ''}</td>`;
+        table += `<td>${item.color || ''}</td>`;
         table += `<td>${item.receive || ''}</td>`;
         table += '</tr>';
       });

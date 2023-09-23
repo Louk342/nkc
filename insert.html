@@ -223,6 +223,30 @@
                 <input type="text" id="otherInput" name="othermodel" placeholder="원하시는 모델명을 입력해 주세요" disabled> -->
             </div>
             <div class="simple_box radio_box">
+                <h4>색상<span>*</span></h4>
+                <div><input type="radio" value="내추럴" name="color" onclick="showInput(this)" checked=""><label>
+                        내추럴 티타늄</label></div>
+                <div><input type="radio" value="블루" name="color" onclick="showInput(this)"><label>
+                        블루 티타늄</label></div>
+                <div><input type="radio" value="화이트" name="color" onclick="showInput(this)"><label>
+                        화이트 티타늄</label></div>
+                <div><input type="radio" value="블랙" name="color" onclick="showInput(this)"><label>
+                        블랙 티타늄</label></div>
+
+                <div><input type="radio" value="핑크" name="color" onclick="showInput(this)" checked=""><label>
+                        핑크</label></div>
+                <div><input type="radio" value="옐로" name="color" onclick="showInput(this)"><label>
+                        엘로</label></div>
+                <div><input type="radio" value="그린" name="color" onclick="showInput(this)"><label>
+                        그린</label></div>
+                <div><input type="radio" value="블루" name="color" onclick="showInput(this)"><label>
+                        블루</label></div>
+                <div><input type="radio" value="블랙" name="color" onclick="showInput(this)"><label>
+                        블랙</label></div>
+                <!-- 내추럴 , 블루 , 화이트 , 블랙 -->
+                <!-- 핑크 , 옐로 , 그린 , 블루 , 블랙 -->
+            </div>
+            <div class="simple_box radio_box">
                 <h4>수령방식<span>*</span></h4>
                 <div><input type="radio" value="방문" name="receive" checked=""><label> 방문수령</label></div>
                 <div><input type="radio" value="택배" name="receive"><label> 택배수령</label></div>
@@ -302,10 +326,11 @@
         if (el.value.length > maxlength) el.value = el.value.substr(0, maxlength);
     }
 
-    /* function showInput(radio) {
-        const otherInput = document.getElementById("otherInput");
-        otherInput.disabled = radio.value !== "other";
-    } */
+    function showInput(radio) {
+        const otherInput = document.getElementsByName("color");
+        otherInput.disabled = radio.value !== "AIP15" || "AIP15PS";
+        otherInput.disabled = radio.value !== "AIP15P" || "AIP15PM";
+    }
 </script>
 
 </html>
