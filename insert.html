@@ -145,11 +145,14 @@
         }
 
         @media (max-width: 620px) {
-
             .over {
                 overflow-y: scroll;
                 background-color: #fff;
             }
+        }
+
+        .hidden {
+            display: none;
         }
     </style>
 </head>
@@ -224,13 +227,13 @@
             </div>
             <div class="simple_box radio_box">
                 <h4>색상<span>*</span></h4>
-                <div><input type="radio" value="내추럴" name="color" onclick="showInput(this)" checked=""><label>
+                <div><input type="radio" value="내추럴" name="colorP" onclick="showInput(this)" checked=""><label>
                         내추럴 티타늄</label></div>
-                <div><input type="radio" value="블루" name="color" onclick="showInput(this)"><label>
+                <div><input type="radio" value="블루" name="colorP" onclick="showInput(this)"><label>
                         블루 티타늄</label></div>
-                <div><input type="radio" value="화이트" name="color" onclick="showInput(this)"><label>
+                <div><input type="radio" value="화이트" name="colorP" onclick="showInput(this)"><label>
                         화이트 티타늄</label></div>
-                <div><input type="radio" value="블랙" name="color" onclick="showInput(this)"><label>
+                <div><input type="radio" value="블랙" name="colorP" onclick="showInput(this)"><label>
                         블랙 티타늄</label></div>
 
                 <div><input type="radio" value="핑크" name="color" onclick="showInput(this)" checked=""><label>
@@ -327,9 +330,10 @@
     }
 
     function showInput(radio) {
-        const otherInput = document.getElementsByName("color");
-        otherInput.disabled = radio.value !== "AIP15" || "AIP15PS";
-        otherInput.disabled = radio.value !== "AIP15P" || "AIP15PM";
+        const pro = document.getElementsByName("colorP");
+        const normal = document.getElementsByName("color");
+        pro.classList.toggle("hidden") = radio.value !== "AIP15" || "AIP15PS";
+        normal.classList.toggle("hidden") = radio.value !== "AIP15P" || "AIP15PM";
     }
 </script>
 
