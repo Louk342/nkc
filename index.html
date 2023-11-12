@@ -14,6 +14,7 @@
     @import url(http://fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
     @import url(http://fonts.googleapis.com/earlyaccess/nanumpenscript.css);
     @import url(https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap);
+
     body {
       line-height: 1;
       margin: 0px auto;
@@ -96,11 +97,11 @@
       <h3>아주대 공식 대리점</h3>
     </div>
   </nav>
-  <img id="randomImage" src="http://ajoodae.com/banner.jpg" style=" max-width: 100%;" />
+  <img class="slide" src="http://ajoodae.com/flip.jpg" style=" max-width: 100%;">
+  <img class="slide" src="http://ajoodae.com/jump3.jpg" style=" max-width: 100%;">
+  <img class="slide" src="http://ajoodae.com/iphone.png" style=" max-width: 100%;">
+  <img class="slide" src="http://ajoodae.com/23.jpg" style=" max-width: 100%;">
   <div class="body">
-    <div>
-      <h1>Comming <b>Soon</b><br /></h1>
-    </div>
     <!--
     <h1>최신 사전예약 현황</h1>
     <marquee direction="up" scrollamount="1" height="100">
@@ -137,22 +138,39 @@
 </body>
 
 <script>
-  /*
+  var slideIndex = 0;
+  carousel();
+
+  function carousel() {
+    var x = document.getElementsByClassName("slide");
+    for (let i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > x.length) slideIndex = 1;
+    x[slideIndex - 1].style.display = "block";
+    setTimeout(carousel, 2000); // Change image every 2 seconds
+  }
+
+  document.getElementById("buttonC").addEventListener("click", function () {
+    window.location.href = "/insert";
+  });
+  
   var t = setInterval(function () {
     var ele = document.getElementById('click');
     ele.style.visibility = (ele.style.visibility == 'hidden' ? '' : 'hidden');
   }, 200);
-  
-  const imageUrls = [
-    "http://ajoodae.com/banner1.jpg",
-    "http://ajoodae.com/banner2.jpg"
-  ];
-  
-  const randomIndex = Math.floor(Math.random() * imageUrls.length);   // 랜덤한 이미지 URL 선택
-  const randomImageUrl = imageUrls[randomIndex];
-  const imageElement = document.getElementById("randomImage");  // 이미지 요소 가져오기
-  imageElement.src = randomImageUrl;   // 이미지의 src 속성 설정
-  */
+  /*
+ const imageUrls = [
+   "http://ajoodae.com/banner1.jpg",
+   "http://ajoodae.com/banner2.jpg"
+ ];
+ 
+ const randomIndex = Math.floor(Math.random() * imageUrls.length);   // 랜덤한 이미지 URL 선택
+ const randomImageUrl = imageUrls[randomIndex];
+ const imageElement = document.getElementById("randomImage");  // 이미지 요소 가져오기
+ imageElement.src = randomImageUrl;   // 이미지의 src 속성 설정
+ */
   /*
   // 현재 날짜를 가져오는 함수
   function getCurrentDate() {
@@ -212,10 +230,6 @@
 
   // 가짜 데이터 추가 함수 호출
   addFakeData();
-
-  document.getElementById("buttonC").addEventListener("click", function () {
-    window.location.href = "/insert";
-  });
   */
 </script>
 

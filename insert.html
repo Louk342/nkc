@@ -197,6 +197,9 @@
                 </div>
             </div>
             <div class="simple_box radio_box">
+                <h4>브랜드 <span>*</span></h4>
+            </div>
+            <div class="simple_box radio_box">
                 <h4>가입조건 <span>*</span></h4>
                 <div><input type="radio" value="신규가입" id="a1" name="join_type" checked=""> <label for="a1">신규가입</label>
                 </div>
@@ -204,94 +207,99 @@
                 <div><input type="radio" value="기기변경" id="a3" name="join_type"> <label for="a3">기기변경</label></div>
             </div>
             <div class="simple_box radio_box">
-                <h4>기종선택<span>*</span></h4>
-                <div><input type="radio" value="AIP15" name="model" onclick="showInput(this)"><label>
-                        아이폰15</label></div>
-                <div><input type="radio" value="AIP15PS" name="model" onclick="showInput(this)"><label>
-                        아이폰15플러스</label></div>
-                <div><input type="radio" value="AIP15P" name="model" onclick="showInput(this)"><label>
-                        아이폰15프로</label></div>
-                <div><input type="radio" value="AIP15PM" name="model" onclick="showInput(this)"><label>
-                        아이폰15프로맥스</label></div>
-                <!-- <div><input type="radio" value="other" name="model" onclick="showInput(this)"><label> 기타</label></div>
-                <input type="text" id="otherInput" name="othermodel" placeholder="원하시는 모델명을 입력해 주세요" disabled> -->
-            </div>
-            <div id="colorNormal" class="simple_box radio_box hidden">
-                <h4>색상<span>*</span></h4>
-                <div><input type="radio" value="내추럴" name="color"><label>
-                        내추럴 티타늄</label></div>
-                <div><input type="radio" value="블루" name="color"><label>
-                        블루 티타늄</label></div>
-                <div><input type="radio" value="화이트" name="color"><label>
-                        화이트 티타늄</label></div>
-                <div><input type="radio" value="블랙" name="color"><label>
-                        블랙 티타늄</label></div>
-            </div>
-            
-            <div id="colorPro" class="simple_box radio_box hidden">
-                <h4>색상<span>*</span></h4>
-                <div><input type="radio" value="핑크" name="color"><label>
-                        핑크</label></div>
-                <div><input type="radio" value="옐로" name="color"><label>
-                        엘로</label></div>
-                <div><input type="radio" value="그린" name="color"><label>
-                        그린</label></div>
-                <div><input type="radio" value="블루" name="color"><label>
-                        블루</label></div>
-                <div><input type="radio" value="블랙" name="color"><label>
-                        블랙</label></div>
-                <!-- 내추럴 , 블루 , 화이트 , 블랙 -->
-                <!-- 핑크 , 옐로 , 그린 , 블루 , 블랙 -->
-            </div>
-            <div class="simple_box radio_box">
-                <h4>저장용량선택<span>*</span></h4>
-                <div><input type="radio" value="128GB" name="storage" checked=""><label>
-                        128GB</label></div>
-                <div><input type="radio" value="256GB" name="storage"><label>
-                        256GB</label></div>
-                <div><input type="radio" value="512GB" name="storage"><label>
-                        512GB</label></div>
-                <div><input type="radio" value="1TB" name="storage"><label>
-                        1TB</label></div>
-                <!-- <div><input type="radio" value="other" name="model" onclick="showInput(this)"><label> 기타</label></div>
-                <input type="text" id="otherInput" name="othermodel" placeholder="원하시는 모델명을 입력해 주세요" disabled> -->
-            </div>
-            <div class="simple_box radio_box">
-                <h4>수령방식<span>*</span></h4>
-                <div><input type="radio" value="방문" name="receive" checked=""><label> 방문수령</label></div>
-                <div><input type="radio" value="택배" name="receive"><label> 택배수령</label></div>
-            </div>
-            <div class="simple_box">
-                <h4>사전예약 신청 절차 및 유의사항<span></span></h4>
-                <div class="">
-                    <textarea class="" cols="66" rows="3"
-                        style="font-family: 'NanumSquare'; font-size: 14px; color: #777777;line-height:1.3;">1.상단 고객 정보 입력 시 사전예약 혜택 안내 드립니다. 혜택 확인 후 구매원하시면 신청서 작성 해주세요.
+                <h4>기종<span>*</span></h4>
+                <h5>Samsung<span>*</span></h5>
+                <div id="samsung" class="simple_box radio_box hidden">
+                    <div><input type="radio" value="Fold 5" name="model" onclick="showInput(this)"><label>Fold 5</label>
+                    </div>
+                    <div><input type="radio" value="Flip 5" name="model" onclick="showInput(this)"><label>Flip 5</label>
+                    </div>
+                    <div><input type="radio" value="S23" name="model" onclick="showInput(this)"><label>S23</label></div>
+                    <div><input type="radio" value="S23+" name="model" onclick="showInput(this)"><label>S23+</label>
+                    </div>
+                    <div><input type="radio" value="S23 Ultra" name="model"
+                            onclick="showInput(this)"><label>S23Ultra</label></div>
+                    <div><input type="radio" value="Jump3" name="model" onclick="showInput(this)"><label>Jump3</label>
+                    </div>
+                    <div><input type="radio" value="A34" name="model" onclick="showInput(this)"><label>A34</label></div>
+                    <hr/>
+                        <div id="apple" class="simple_box radio_box hidden">
+                            <div><input type="radio" value="AIP15" name="model"
+                                    onclick="showInput(this)"><label>아이폰15</label></div>
+                            <div><input type="radio" value="AIP15PS" name="model"
+                                    onclick="showInput(this)"><label>아이폰15플러스</label></div>
+                            <div><input type="radio" value="AIP15P" name="model"
+                                    onclick="showInput(this)"><label>아이폰15프로</label></div>
+                            <div><input type="radio" value="AIP15PM" name="model"
+                                    onclick="showInput(this)"><label>아이폰15프로맥스</label></div>
+                        </div>
+                        <div><input type="radio" value="other" name="model" onclick="showInput(this)"><label> 기타</label>
+                        </div>
+                        <input type="text" id="otherInput" name="othermodel" placeholder="원하시는 모델명을 입력해 주세요" disabled>
+                </div>
+                <div id="color" class="simple_box radio_box">
+                    <h4>색상<span>*</span></h4>
+                    <input type="text" id="color" name="color" placeholder="원하시는 색상을 입력해 주세요">
+                </div>
+                <!--
+                <div id="colorN" class="simple_box radio_box hidden">
+                    <h4>색상<span>*</span></h4>
+                    <div><input type="radio" value="내추럴" name="color"><label>내추럴 티타늄</label></div>
+                    <div><input type="radio" value="블루" name="color"><label>블루 티타늄</label></div>
+                    <div><input type="radio" value="화이트" name="color"><label>화이트 티타늄</label></div>
+                    <div><input type="radio" value="블랙" name="color"><label>블랙 티타늄</label></div>
+                </div>
+                <div id="colorP" class="simple_box radio_box hidden">
+                    <h4>색상<span>*</span></h4>
+                    <div><input type="radio" value="핑크" name="color"><label>핑크</label></div>
+                    <div><input type="radio" value="옐로" name="color"><label>엘로</label></div>
+                    <div><input type="radio" value="그린" name="color"><label>그린</label></div>
+                    <div><input type="radio" value="블루" name="color"><label>블루</label></div>
+                    <div><input type="radio" value="블랙" name="color"><label>블랙</label></div>
+                    <!-- 내추럴 , 블루 , 화이트 , 블랙 -->
+                    <!-- 핑크 , 옐로 , 그린 , 블루 , 블랙 -->
+                </div>
+                <div class="simple_box radio_box">
+                    <h4>저장용량선택<span>*</span></h4>
+                    <div><input type="radio" value="128GB" id="128" name="storage" checked=""><label>128GB</label></div>
+                    <div><input type="radio" value="256GB" name="storage"><label>256GB</label></div>
+                </div>
+                <div class="simple_box radio_box">
+                    <h4>수령방식<span>*</span></h4>
+                    <div><input type="radio" value="방문" name="receive" checked=""><label> 방문수령</label></div>
+                    <div><input type="radio" value="택배" name="receive"><label> 택배수령</label></div>
+                </div>
+                <div class="simple_box">
+                    <h4>사전예약 신청 절차 및 유의사항<span></span></h4>
+                    <div class="">
+                        <textarea class="" cols="66" rows="3"
+                            style="font-family: 'NanumSquare'; font-size: 14px; color: #777777;line-height:1.3;">1.상단 고객 정보 입력 시 사전예약 혜택 안내 드립니다. 혜택 확인 후 구매원하시면 신청서 작성 해주세요.
 2.상단 입력하신 부분(구매모델/색상/용량) 등은 추후 언제든지 변경 가능합니다.
 3.저희 쪽 외에 다른 곳에 이중 신청하시면 이중 접수되실 수 있습니다. 저희 신청 후 믿고 기다려주시면 좋은 혜택으로 보답 드리겠습니다.
                     </textarea>
-                </div>
-            </div>
-
-            <div class="simple_box">
-                <h4>개인정보 수집 이용 동의 <span>(필수)</span></h4>
-                <div style="padding: 12px;border: 1px solid #dadada;height:110px;overflow-y:scroll;">
-                    <div>
-                        <p style="font-family: 'NanumSquare';font-size: 14px;color: #777777;line-height: 1.3;">
-                            ●개인정보 수집 및 이용목적 : 사전예약 알림신청 및 이벤트, 출시 정보
-                            안내<br>
-                            ●수집하는 개인정보 항목 : <span style="color: #f53168;">고객명, 생년월일, 전화번호(연락처)</span><br>
-                            ●개인정보 보유 및 이용기간 : 사전예약 알림 신청 전송 후 <span style="color: #f53168;">1년 이내 폐기</span><br>※단,
-                            관계법령의 규정에 의하여 보존할 필요가 있는 경우 관련 법령에 따라 보관
-                        </p>
                     </div>
                 </div>
-            </div>
 
-            <div class="simple_right">
-                <input class="" type="checkbox" id="agree" name="agree" value="y">
-                <label>개인정보 수집 및 이용에 동의합니다.</label>
-            </div>
-            <button class="simple_box" style="height: 100px" onclick="inputCheck">사전예약하기</button>
+                <div class="simple_box">
+                    <h4>개인정보 수집 이용 동의 <span>(필수)</span></h4>
+                    <div style="padding: 12px;border: 1px solid #dadada;height:110px;overflow-y:scroll;">
+                        <div>
+                            <p style="font-family: 'NanumSquare';font-size: 14px;color: #777777;line-height: 1.3;">
+                                ●개인정보 수집 및 이용목적 : 사전예약 알림신청 및 이벤트, 출시 정보
+                                안내<br>
+                                ●수집하는 개인정보 항목 : <span style="color: #f53168;">고객명, 생년월일, 전화번호(연락처)</span><br>
+                                ●개인정보 보유 및 이용기간 : 사전예약 알림 신청 전송 후 <span style="color: #f53168;">1년 이내 폐기</span><br>※단,
+                                관계법령의 규정에 의하여 보존할 필요가 있는 경우 관련 법령에 따라 보관
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="simple_right">
+                    <input class="" type="checkbox" id="agree" name="agree" value="y">
+                    <label>개인정보 수집 및 이용에 동의합니다.</label>
+                </div>
+                <button class="simple_box" style="height: 100px" onclick="inputCheck">상담예약하기</button>
         </form>
     </div>
     <div>
@@ -342,16 +350,24 @@
     }
 
     function showInput(radio) {
-        const colorNormal = document.getElementById("colorNormal");
-        const colorPro = document.getElementById("colorPro");
-
+        const colorN = document.getElementById("colorN");
+        const colorP = document.getElementById("colorP");
+        const otherInput = document.getElementById("otherInput");
+        const gb = document.getElementById("128");
+        //기타입력창
+        if (radio.value === "other") otherInput.disabled = false;
+        else if (radio.value != "other") otherInput.disabled = true;
+        /*
+        //아이폰 색상
         if (radio.value === "AIP15" || radio.value === "AIP15PS") {
-            colorNormal.classList.add("hidden");
-            colorPro.classList.remove("hidden");
+            colorN.classList.add("hidden");
+            colorP.classList.remove("hidden");
         } else if (radio.value === "AIP15P" || radio.value === "AIP15PM") {
-            colorNormal.classList.remove("hidden");
-            colorPro.classList.add("hidden");
+            colorN.classList.remove("hidden");
+            colorP.classList.add("hidden");
         }
+        //삼성 색상
+        */
     }
 </script>
 
