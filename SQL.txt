@@ -6,5 +6,6 @@ birth varchar(30),
 type varchar(30),
 model varchar(30),
 receive varchar(30),
-storage varchar(30)
+storage varchar(30),
+color varchar(30)
 );
