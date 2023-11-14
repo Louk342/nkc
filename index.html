@@ -87,6 +87,133 @@
         opacity: 0;
       }
     }
+
+    .slide {
+      /* layout */
+      display: flex;
+      flex-wrap: nowrap;
+      /* 컨테이너의 내용물이 컨테이너 크기(width, height)를 넘어설 때 보이지 않도록 하기 위해 hidden을 준다. */
+      overflow: hidden;
+
+      /* position */
+      /* slide_button의 position absolute가 컨테이너 안쪽에서 top, left, right offset이 적용될 수 있도록 relative를 준다. (기본값이 static인데, static인 경우 그 상위 컨테이너로 나가면서 현재 코드에선 html을 기준으로 offset을 적용시키기 때문) */
+      position: relative;
+
+      /* size */
+      width: 100%;
+
+      /* slide drag를 위해 DOM요소가 드래그로 선택되는것을 방지 */
+      user-select: none;
+    }
+
+    .slide_item {
+      background-size: contain;
+      /* 이미지 비율을 유지한 채로 보여주기 */
+      background-repeat: no-repeat;
+      /* 배경 이미지 반복 제거 */
+      background-position: center center;
+      /* 이미지를 가운데 정렬 */
+      width: 100%;
+      height: 0;
+      padding-top: calc(649 / 390 * 100%);
+      /* 16:9
+      /* layout */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 20px;
+      /* position - 버튼 클릭시 left offset값을 적용시키기 위해 */
+      position: relative;
+      left: 0px;
+      /* size */
+      width: 100%;
+      height: auto;
+      /* flex item의 flex-shrink는 기본값이 1이므로 컨테이너 크기에 맞게 줄어드는데, 슬라이드를 구현할 것이므로 줄어들지 않도록 0을 준다. */
+      flex-shrink: 0;
+      /* transition */
+      transition: left 0.15s;
+    }
+
+    .slide_button {
+      /* layout */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      /* position */
+      position: absolute;
+      /* 버튼이 중앙에 위치하게 하기위해 계산 */
+      top: calc(50% - 16px);
+
+      /* size */
+      width: 32px;
+      height: 32px;
+
+      /* style */
+      border-radius: 100%;
+      background-color: #cccc;
+      cursor: pointer;
+    }
+
+    .slide_prev_button {
+      left: 10px;
+    }
+
+    .slide_next_button {
+      right: 10px;
+    }
+
+    ul,
+    li {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .slide_pagination {
+      /* layout */
+      display: flex;
+      gap: 5px;
+
+      /* position */
+      position: absolute;
+      bottom: 0;
+      /* left:50%, translateX(-50%)를 하면 가로 가운데로 위치시킬 수 있다. */
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .slide_pagination>li {
+      /* 현재 슬라이드가 아닌 것은 투명도 부여 */
+      color: #7fb5ff88;
+      cursor: pointer;
+      font-size: 25px;
+    }
+
+    .slide_pagination>li.active {
+      /* 현재 슬라이드 색상은 투명도 없이 */
+      color: #7fb5ff;
+    }
+
+    .slide_item:nth-child(1) {
+      background-image: url("http://ajoodae.com/flip.jpg");
+      left: calc(100% * 0);
+    }
+
+    .slide_item:nth-child(2) {
+      background-image: url("http://ajoodae.com/jump3.jpg");
+      left: calc(100% * 1);
+    }
+
+    .slide_item:nth-child(3) {
+      background-image: url("http://ajoodae.com/iphone.png");
+      left: calc(100% * 2);
+    }
+
+    .slide_item:nth-child(4) {
+      background-image: url("http://ajoodae.com/23.jpg");
+      left: calc(100% * 3);
+    }
   </style>
 </head>
 
@@ -97,23 +224,25 @@
       <h3>아주대 공식 대리점</h3>
     </div>
   </nav>
-  <img class="slide" src="http://ajoodae.com/flip.jpg" style=" max-width: 100%;">
-  <img class="slide" src="http://ajoodae.com/jump3.jpg" style=" max-width: 100%;">
-  <img class="slide" src="http://ajoodae.com/iphone.png" style=" max-width: 100%;">
-  <img class="slide" src="http://ajoodae.com/23.jpg" style=" max-width: 100%;">
+
   <div class="body">
-    <!--
-    <h1>최신 사전예약 현황</h1>
+    <div class="slide slide_wrap">
+      <div class="slide_item"></div>
+      <div class="slide_item"></div>
+      <div class="slide_item"></div>
+      <div class="slide_item"></div>
+      <div class="slide_prev_button slide_button">◀</div>
+      <div class="slide_next_button slide_button">▶</div>
+      <ul class="slide_pagination"></ul>
+    </div>
+    <script src="./slide.js"></script>
+    <h1>최근 상담 현황</h1>
     <marquee direction="up" scrollamount="1" height="100">
       <table border="0" cellpadding="0" cellspacing="10" align="center">
         <tbody id="fakeData">
         </tbody>
       </table>
     </marquee>
-    <div id="buttonC" class="button">
-      <h2 style="margin: 0px; color: white;">예약하기</h2>
-    </div>
-    -->
     <div id="buttonC" class="button">
       <h2 style="margin: 0px; color: white;">상담예약하기</h2>
     </div>
@@ -138,48 +267,17 @@
 </body>
 
 <script>
-  var slideIndex = 0;
-  carousel();
-
-  function carousel() {
-    var x = document.getElementsByClassName("slide");
-    for (let i = 0; i < x.length; i++) {
-      x[i].style.display = "none";
-    }
-    slideIndex++;
-    if (slideIndex > x.length) slideIndex = 1;
-    x[slideIndex - 1].style.display = "block";
-    setTimeout(carousel, 2000); // Change image every 2 seconds
-  }
+  addFakeData();
 
   document.getElementById("buttonC").addEventListener("click", function () {
     window.location.href = "/insert";
   });
-  
-  var t = setInterval(function () {
-    var ele = document.getElementById('click');
-    ele.style.visibility = (ele.style.visibility == 'hidden' ? '' : 'hidden');
-  }, 200);
-  /*
- const imageUrls = [
-   "http://ajoodae.com/banner1.jpg",
-   "http://ajoodae.com/banner2.jpg"
- ];
- 
- const randomIndex = Math.floor(Math.random() * imageUrls.length);   // 랜덤한 이미지 URL 선택
- const randomImageUrl = imageUrls[randomIndex];
- const imageElement = document.getElementById("randomImage");  // 이미지 요소 가져오기
- imageElement.src = randomImageUrl;   // 이미지의 src 속성 설정
- */
-  /*
-  // 현재 날짜를 가져오는 함수
-  function getCurrentDate() {
-    const today = new Date();
-    const year = today.getFullYear();
-    const month = String(today.getMonth() + 1).padStart(2, '0');
-    const day = String(today.getDate()).padStart(2, '0');
-    return `${year}-${month}-${day}`;
-  }
+
+  const randomIndex = Math.floor(Math.random() * imageUrls.length);   // 랜덤한 이미지 URL 선택
+  const randomImageUrl = imageUrls[randomIndex];
+  const imageElement = document.getElementById("randomImage");  // 이미지 요소 가져오기
+  imageElement.src = randomImageUrl;   // 이미지의 src 속성 설정
+
   // 이름 생성 함수 (랜덤으로 성씨와 이름 조합)
   function generateName() {
     const lastNames = ['김', '이', '박', '최', '정', '한', '오'];
@@ -195,42 +293,40 @@
 
   // 모델 이름 생성 함수
   function generateModel() {
-    const models = ["아이폰15", "아이폰15플러스", "아이폰15프로", "아이폰15프로맥스"];
+    const models = ["아이폰15", "아이폰15플러스", "아이폰15프로", "아이폰15프로맥스", "S23", "S23+", "S23Ultra", "플립5", "폴드5"];
     return models[Math.floor(Math.random() * models.length)];
   }
 
   // 가짜 데이터 추가 함수
   function addFakeData() {
     const tableBody = document.getElementById('fakeData');
-    const startDate = new Date(2023, 8, 14); // 8월 1일 (월은 0부터 시작하므로 7로 설정)
-    const currentDate = new Date();
-    currentDate.setDate(currentDate.getDate()); // 오늘 날짜를 포함하기 위해 하루 추가
+    const endDate = new Date(); // 오늘 날짜
+    endDate.setDate(endDate.getDate() - 1); // 어제로 설정
+    const startDate = new Date(endDate); // 시작일은 어제
 
-    while (startDate <= currentDate) {
-      const dataCount = Math.floor(Math.random() * 5) + 1; // 하루에 생성할 가짜 데이터 수
-      for (let i = 0; i < dataCount; i++) {
-        const name = generateName();
-        const phone = generatePhoneNumber();
-        const model = generateModel();
+    startDate.setDate(startDate.getDate() - 5); // 10일 전으로 설정
 
-        const newRow = document.createElement('tr');
-        newRow.innerHTML = `
+    while (startDate <= endDate) {
+        const dataCount = Math.floor(Math.random() * 5) + 1; // 하루에 생성할 가짜 데이터 수
+        for (let i = 0; i < dataCount; i++) {
+            const name = generateName();
+            const phone = generatePhoneNumber();
+            const model = generateModel();
+
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
                   <td class="list_date_new">${startDate.getFullYear()}-${String(startDate.getMonth() + 1).padStart(2, '0')}-${String(startDate.getDate()).padStart(2, '0')}</td>
                   <td class="list_name_new">${name}</td>
                   <td class="list_phone">${phone}</td>
                   <td class="list_model_new">${model}</td>
                 `;
 
-        tableBody.appendChild(newRow);
-      }
-
-      startDate.setDate(startDate.getDate() + 1); // 다음 날짜로 이동
+            tableBody.appendChild(newRow);
+        }
+        startDate.setDate(startDate.getDate() + 1); // 다음 날짜로 이동
     }
-  }
+}
 
-  // 가짜 데이터 추가 함수 호출
-  addFakeData();
-  */
 </script>
 
 </html>
