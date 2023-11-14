@@ -273,11 +273,6 @@
     window.location.href = "/insert";
   });
 
-  const randomIndex = Math.floor(Math.random() * imageUrls.length);   // 랜덤한 이미지 URL 선택
-  const randomImageUrl = imageUrls[randomIndex];
-  const imageElement = document.getElementById("randomImage");  // 이미지 요소 가져오기
-  imageElement.src = randomImageUrl;   // 이미지의 src 속성 설정
-
   // 이름 생성 함수 (랜덤으로 성씨와 이름 조합)
   function generateName() {
     const lastNames = ['김', '이', '박', '최', '정', '한', '오'];
