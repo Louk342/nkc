@@ -1,3 +1,10 @@
+autoSlide();
+function autoSlide() {
+    // 3초마다 오른쪽으로 슬라이드
+    setInterval(() => {
+        nextMove();
+    }, 3000);
+}
 // 슬라이크 전체 크기(width 구하기)
 const slide = document.querySelector(".slide");
 let slideWidth = slide.clientWidth;

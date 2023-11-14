@@ -15,7 +15,7 @@ app.use(cors());
 app.get('/', (req, res) => { res.sendFile(__dirname + '/index.html'); })
 app.get('/insert', (req, res) => { res.sendFile(__dirname + '/insert.html'); })
 app.get('/admin', (req, res) => { res.sendFile(__dirname + '/admin.html'); })
-
+app.get('/slide.js', (req, res) => { res.sendFile(__dirname + '/slide.js'); })
 app.post('/insertS', async (req, res) => {
   const phone = req.body.phone + req.body.phone2 + req.body.phone3;
   var model = req.body.model;
