@@ -22,8 +22,8 @@
             margin: 10px 0px;
         }
 
-        h3 {
-            text-align: center;
+        .brand {
+            margin: 0px auto;
         }
 
         body {
@@ -213,7 +213,7 @@
             </div>
             <div class="simple_box radio_box">
                 <h4>기종<span>*</span></h4>
-                <h3>Samsung</h3>
+                <img src="http://ajoodae.com/samsung.png" style="max-width: 60px;" />
                 <div id="samsung" class="simple_box radio_box hidden">
                     <div><input type="radio" value="Fold 5" name="model" onclick="showInput(this)"><label>Fold 5</label>
                     </div>
@@ -222,67 +222,67 @@
                     <div><input type="radio" value="S23" name="model" onclick="showInput(this)"><label>S23</label></div>
                     <div><input type="radio" value="S23+" name="model" onclick="showInput(this)"><label>S23+</label>
                     </div>
-                    <div><input type="radio" value="S23 Ultra" name="model"
-                            onclick="showInput(this)"><label>S23Ultra</label></div>
+                    <div><input type="radio" value="S23 Ultra" name="model"onclick="showInput(this)"><label>S23Ultra</label></div>
                     <div><input type="radio" value="Jump3" name="model" onclick="showInput(this)"><label>Jump3</label>
                     </div>
                     <div><input type="radio" value="A34" name="model" onclick="showInput(this)"><label>A34</label></div>
-                    <hr />
-                    <h3>Apple</h3>
-                    <div id="apple" class="simple_box radio_box hidden">
-                        <div><input type="radio" value="AIP15" name="model"
-                                onclick="showInput(this)"><label>Iphone15</label></div>
-                        <div><input type="radio" value="AIP15PS" name="model"
-                                onclick="showInput(this)"><label>Iphone15+</label></div>
-                        <div><input type="radio" value="AIP15P" name="model" onclick="showInput(this)"><label>Iphone15
-                                Pro</label></div>
-                        <div><input type="radio" value="AIP15PM" name="model" onclick="showInput(this)"><label>Iphone15
-                                Pro Max</label></div>
-                    </div>
-                    <div><input type="radio" value="other" name="model" onclick="showInput(this)"><label> 기타</label>
-                    </div>
-                    <input type="text" id="otherInput" name="othermodel" placeholder="원하시는 모델명을 입력해 주세요" disabled>
                 </div>
-                <div id="color" class="simple_box radio_box">
-                    <h4>색상<span>*</span></h4>
-                    <input type="text" id="color" name="color" placeholder="원하시는 색상을 입력해 주세요" style="width: 80%;">
+                <hr />
+                <img src="http://ajoodae.com/apple.png" style="max-width: 60px;" />
+                <div id="apple" class="simple_box radio_box hidden">
+                    <div><input type="radio" value="AIP15" name="model"
+                            onclick="showInput(this)"><label>Iphone15</label></div>
+                    <div><input type="radio" value="AIP15PS" name="model"
+                            onclick="showInput(this)"><label>Iphone15+</label></div>
+                    <div><input type="radio" value="AIP15P" name="model" onclick="showInput(this)"><label>Iphone15
+                            Pro</label></div>
+                    <div><input type="radio" value="AIP15PM" name="model" onclick="showInput(this)"><label>Iphone15
+                            Pro Max</label></div>
                 </div>
-                <div class="simple_box radio_box">
-                    <h4>수령방식<span>*</span></h4>
-                    <div><input type="radio" value="방문" name="receive" checked=""><label> 방문수령</label></div>
-                    <div><input type="radio" value="택배" name="receive"><label> 택배수령</label></div>
+                <div><input type="radio" value="other" name="model" onclick="showInput(this)"><label> 기타</label>
                 </div>
-                <div class="simple_box">
-                    <h4>사전예약 신청 절차 및 유의사항<span></span></h4>
-                    <div class="">
-                        <textarea class="" cols="66" rows="3"
-                            style="font-family: 'NanumSquare'; font-size: 14px; color: #777777;line-height:1.3;">1.상단 고객 정보 입력 시 사전예약 혜택 안내 드립니다. 혜택 확인 후 구매원하시면 신청서 작성 해주세요.
+                <input type="text" id="otherInput" name="othermodel" placeholder="원하시는 모델명을 입력해 주세요" disabled>
+            </div>
+            <div id="color" class="simple_box radio_box">
+                <h4>색상<span>*</span></h4>
+                <input type="text" id="color" name="color" placeholder="원하시는 색상을 입력해 주세요" style="width: 80%;">
+            </div>
+            <div class="simple_box radio_box">
+                <h4>수령방식<span>*</span></h4>
+                <div><input type="radio" value="방문" name="receive" checked=""><label> 방문수령</label></div>
+                <div><input type="radio" value="택배" name="receive"><label> 택배수령</label></div>
+            </div>
+            <div class="simple_box">
+                <h4>사전예약 신청 절차 및 유의사항<span></span></h4>
+                <div class="">
+                    <textarea class="" cols="66" rows="3"
+                        style="font-family: 'NanumSquare'; font-size: 14px; color: #777777;line-height:1.3;">1.상단 고객 정보 입력 시 사전예약 혜택 안내 드립니다. 혜택 확인 후 구매원하시면 신청서 작성 해주세요.
 2.상단 입력하신 부분(구매모델/색상/용량) 등은 추후 언제든지 변경 가능합니다.
 3.저희 쪽 외에 다른 곳에 이중 신청하시면 이중 접수되실 수 있습니다. 저희 신청 후 믿고 기다려주시면 좋은 혜택으로 보답 드리겠습니다.
                     </textarea>
+                </div>
+            </div>
+
+            <div class="simple_box">
+                <h4>개인정보 수집 이용 동의 <span>(필수)</span></h4>
+                <div style="padding: 12px;border: 1px solid #dadada;height:110px;overflow-y:scroll;">
+                    <div>
+                        <p style="font-family: 'NanumSquare';font-size: 14px;color: #777777;line-height: 1.3;">
+                            ●개인정보 수집 및 이용목적 : 사전예약 알림신청 및 이벤트, 출시 정보
+                            안내<br>
+                            ●수집하는 개인정보 항목 : <span style="color: #f53168;">고객명, 생년월일, 전화번호(연락처)</span><br>
+                            ●개인정보 보유 및 이용기간 : 사전예약 알림 신청 전송 후 <span style="color: #f53168;">1년 이내 폐기</span><br>※단,
+                            관계법령의 규정에 의하여 보존할 필요가 있는 경우 관련 법령에 따라 보관
+                        </p>
                     </div>
                 </div>
+            </div>
 
-                <div class="simple_box">
-                    <h4>개인정보 수집 이용 동의 <span>(필수)</span></h4>
-                    <div style="padding: 12px;border: 1px solid #dadada;height:110px;overflow-y:scroll;">
-                        <div>
-                            <p style="font-family: 'NanumSquare';font-size: 14px;color: #777777;line-height: 1.3;">
-                                ●개인정보 수집 및 이용목적 : 사전예약 알림신청 및 이벤트, 출시 정보
-                                안내<br>
-                                ●수집하는 개인정보 항목 : <span style="color: #f53168;">고객명, 생년월일, 전화번호(연락처)</span><br>
-                                ●개인정보 보유 및 이용기간 : 사전예약 알림 신청 전송 후 <span style="color: #f53168;">1년 이내 폐기</span><br>※단,
-                                관계법령의 규정에 의하여 보존할 필요가 있는 경우 관련 법령에 따라 보관
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="simple_right">
-                    <input class="" type="checkbox" id="agree" name="agree" value="y">
-                    <label>개인정보 수집 및 이용에 동의합니다.</label>
-                </div>
-                <button class="simple_box" style="height: 100px" onclick="inputCheck">상담예약하기</button>
+            <div class="simple_right">
+                <input class="" type="checkbox" id="agree" name="agree" value="y">
+                <label>개인정보 수집 및 이용에 동의합니다.</label>
+            </div>
+            <button class="simple_box" style="height: 100px" onclick="inputCheck">상담예약하기</button>
         </form>
     </div>
     <div>
