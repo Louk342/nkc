@@ -243,9 +243,15 @@
         </tbody>
       </table>
     </marquee>
-    <div id="buttonC" class="button">
-      <h2 style="margin: 0px; color: white;">상담예약하기</h2>
+    <div>
+      <div id="button1" class="button" style="float: left;">
+        <h2 style="margin: 0px; color: white;">상담예약하기</h2>
+      </div>
+      <div id="button2" class="button" style="float: right;">
+        <h2 style="margin: 0px; color: white;">사전예약하기</h2>
+      </div>
     </div>
+    
     <h2 style="text-align: left; padding-left: 20px;">매장문의</h2>
     <div style="text-align: left;padding: 10px 20px; border-radius: 15px; background-color: white;">
       <p style="font-size:larger; margin: 0px;">
@@ -268,9 +274,13 @@
 
 <script>
   addFakeData();
-
-  document.getElementById("buttonC").addEventListener("click", function () {
-    window.location.href = "/insert";
+  //상담예약
+  document.getElementById("button1").addEventListener("click", function () {
+    window.location.href = "/conRes";
+  });
+  //사전예약
+  document.getElementById("button2").addEventListener("click", function () {
+    window.location.href = "/advRes";
   });
 
   // 이름 생성 함수 (랜덤으로 성씨와 이름 조합)

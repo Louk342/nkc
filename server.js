@@ -5,7 +5,7 @@ const db = require('./db');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
-app.listen(port, () => console.log(`Server2 listening on port ${port}`));
+app.listen(port, () => console.log(`Server running on port ${port}`));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
@@ -13,7 +13,8 @@ app.use(express.static('img'));
 app.use(cors());
 
 app.get('/', (req, res) => { res.sendFile(__dirname + '/index.html'); })
-app.get('/insert', (req, res) => { res.sendFile(__dirname + '/insert.html'); })
+app.get('/advRes', (req, res) => { res.sendFile(__dirname + '/advRes.html'); })
+app.get('/conRes', (req, res) => { res.sendFile(__dirname + '/conRes.html'); })
 app.get('/admin', (req, res) => { res.sendFile(__dirname + '/admin.html'); })
 app.get('/slide.js', (req, res) => { res.sendFile(__dirname + '/slide.js'); })
 app.post('/insertS', async (req, res) => {
