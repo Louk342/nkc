@@ -53,6 +53,8 @@ app.post('/admin', async (req, res) => {
       const result = await db.query(sql);
       let table = '<table>';
       table += '<tr>';
+      table += `<th>${'예약날짜'}</th>`;
+      table += `<th>${'예약방식'}</th>`;
       table += `<th>${'성함'}</th>`;
       table += `<th>${'전화번호'}</th>`;
       table += `<th>${'생년월일'}</th>`;
@@ -65,6 +67,8 @@ app.post('/admin', async (req, res) => {
 
       result.forEach(function (item) {
         table += '<tr>';
+        table += `<td>${resTime.resKind || ''}</td>`;
+        table += `<td>${item.resKind || ''}</td>`;
         table += `<td>${item.name || ''}</td>`;
         table += `<td>${item.phone || ''}</td>`;
         table += `<td>${item.birth || ''}</td>`;
