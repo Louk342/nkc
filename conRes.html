@@ -178,9 +178,9 @@
 
         </div>
 
-        <form name="frm" action="http://ajoodae.com/insertS" onSubmit="return inputCheck(this);" method="post"
+        <form name="frm" action="http://ajoodae.com/reservation" onSubmit="return inputCheck(this);" method="post"
             class="simple_wrap">
-            <input type="hidden" name="mode" value="insert">
+            <input type="hidden" name="mode" value="상담예약">
             <div class="simple_box">
                 <h4>이름 <span>*</span></h4>
                 <input class="" id="name" name="name" type="text" value="" placeholder="신청자 이름">
@@ -222,7 +222,8 @@
                     <div><input type="radio" value="S23" name="model" onclick="showInput(this)"><label>S23</label></div>
                     <div><input type="radio" value="S23+" name="model" onclick="showInput(this)"><label>S23+</label>
                     </div>
-                    <div><input type="radio" value="S23 Ultra" name="model"onclick="showInput(this)"><label>S23Ultra</label></div>
+                    <div><input type="radio" value="S23 Ultra" name="model"
+                            onclick="showInput(this)"><label>S23Ultra</label></div>
                     <div><input type="radio" value="Jump3" name="model" onclick="showInput(this)"><label>Jump3</label>
                     </div>
                     <div><input type="radio" value="A34" name="model" onclick="showInput(this)"><label>A34</label></div>
@@ -290,7 +291,6 @@
 </body>
 <script>
     function inputCheck(frm) {
-
         if (frm.name.value == "") {
             alert('이름을 작성해 주세요');
             frm.name.focus();

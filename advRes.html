@@ -178,9 +178,9 @@
 
         </div>
 
-        <form name="frm" action="http://ajoodae.com/insertS" onSubmit="return inputCheck(this);" method="post"
+        <form name="frm" action="http://ajoodae.com/reservation" onSubmit="return inputCheck(this);" method="post"
             class="simple_wrap">
-            <input type="hidden" name="mode" value="insert">
+            <input type="hidden" name="mode" value="사전예약">
             <div class="simple_box">
                 <h4>이름 <span>*</span></h4>
                 <input class="" id="name" name="name" type="text" value="" placeholder="신청자 이름">
@@ -214,9 +214,9 @@
             <div class="simple_box radio_box">
                 <h4>기종<span>*</span></h4>
                 <div id="samsung" class="simple_box radio_box hidden">
-                    <div><input type="radio" value="S24" name="model" onclick="showInput(this)"><label>S23</label></div>
-                    <div><input type="radio" value="S24+" name="model" onclick="showInput(this)"><label>S23+</label></div>
-                    <div><input type="radio" value="S24 Ultra" name="model" onclick="showInput(this)"><label>S23Ultra</label></div>
+                    <div><input type="radio" value="S24" name="model"><label>S24</label></div>
+                    <div><input type="radio" value="S24+" name="model"><label>S24+</label></div>
+                    <div><input type="radio" value="S24 Ultra" name="model"><label>S24Ultra</label></div>
                 </div>
             </div>
             <div class="simple_box radio_box">
@@ -262,7 +262,6 @@
 </body>
 <script>
     function inputCheck(frm) {
-
         if (frm.name.value == "") {
             alert('이름을 작성해 주세요');
             frm.name.focus();
@@ -302,27 +301,6 @@
 
     function handleOnInput(el, maxlength) {
         if (el.value.length > maxlength) el.value = el.value.substr(0, maxlength);
-    }
-
-    function showInput(radio) {
-        const colorN = document.getElementById("colorN");
-        const colorP = document.getElementById("colorP");
-        const otherInput = document.getElementById("otherInput");
-        const gb = document.getElementById("128");
-        //기타입력창
-        if (radio.value === "other") otherInput.disabled = false;
-        else if (radio.value != "other") otherInput.disabled = true;
-        /*
-        //Iphone 색상
-        if (radio.value === "AIP15" || radio.value === "AIP15PS") {
-            colorN.classList.add("hidden");
-            colorP.classList.remove("hidden");
-        } else if (radio.value === "AIP15P" || radio.value === "AIP15PM") {
-            colorN.classList.remove("hidden");
-            colorP.classList.add("hidden");
-        }
-        //삼성 색상
-        */
     }
 </script>
 

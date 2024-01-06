@@ -17,19 +17,19 @@ app.get('/advRes', (req, res) => { res.sendFile(__dirname + '/advRes.html'); })
 app.get('/conRes', (req, res) => { res.sendFile(__dirname + '/conRes.html'); })
 app.get('/admin', (req, res) => { res.sendFile(__dirname + '/admin.html'); })
 app.get('/slide.js', (req, res) => { res.sendFile(__dirname + '/slide.js'); })
-app.post('/insertS', async (req, res) => {
-  const phone = req.body.phone + req.body.phone2 + req.body.phone3;
-  var model = req.body.model;
+app.post('/reservation', async (req, res) => {
+  const phone = req.body.phone + "-" + req.body.phone2 + "-" + req.body.phone3;
+  let model = req.body.model;
   if (model == "other") model = req.body.othermodel;
   try {
-    const sql = 'INSERT INTO nkc (name, phone, birth, type, model, receive, storage, color) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
-    const values = [req.body.name, phone, req.body.birth, req.body.join_type, model, req.body.receive, req.body.storage, req.body.color];
+    const sql = 'INSERT INTO reservation (resTime, resKind, name, phone, birth, type, model, receive, storage, color) VALUES (NOW(), ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+    const values = [req.body.resKind, req.body.name, phone, req.body.birth, req.body.join_type, model, req.body.receive, req.body.storage, req.body.color];
 
     await db.query(sql, values); // 쿼리 실행 및 결과 대기
 
     res.send(`
       <script>
-        alert('상담예약이 완료되었습니다!');
+        alert('예약이 완료되었습니다!');
         window.location.href = '/';
       </script>
     `);
@@ -49,9 +49,9 @@ app.post('/admin', async (req, res) => {
   const correct_password = 'ha80558055!';
   if (password === correct_password) {
     try {
-      const sql = 'SELECT name, phone, birth, type, model, storage ,color ,receive FROM nkc';
-      const result = await db.query(sql); // 쿼리 실행 및 결과 대기
-      let table = '<table>'; // 결과 값을 출력하기 위한 Table 태그 초기화
+      const sql = 'SELECT name, phone, birth, type, model, storage ,color ,receive FROM reservation';
+      const result = await db.query(sql);
+      let table = '<table>';
       table += '<tr>';
       table += `<th>${'성함'}</th>`;
       table += `<th>${'전화번호'}</th>`;
