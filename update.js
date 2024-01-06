@@ -5,5 +5,5 @@ const port = 80;
 app.listen(port, () => console.log(`Server running on port ${port}`));
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
+  res.sendFile(__dirname + "/update.html");
 });
