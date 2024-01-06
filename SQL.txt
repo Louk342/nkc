@@ -1,7 +1,7 @@
 //예약
 create table reservation( 
     id int primary key auto_increment,
-    resTime datetime not null,
+    resTime datetime,
     resKind varchar(20),
     name varchar(20),
     birth varchar(30),
@@ -12,5 +12,5 @@ create table reservation(
     color varchar(30),
     receive varchar(30)
 );
-insert into reservation (resKind ,name, phone, birth, appType, model, receive, storage, color) values ("사전예약","최준혁", "010-6888-1049","000728","기기변경","AIP15PM","방문","256GB",NULL)
-insert into reservation (resKind ,name, phone, birth, appType, model, receive, storage, color) values ("사전예약","윤성환", "010-9928-8446","920220","신규가입","AIP15PM","방문","1TB","블랙")
+insert into reservation (resKind ,name, phone, birth, appType, model, receive, storage, color) values ("사전예약","최준혁", "010-6888-1049","000728","기기변경","AIP15PM","방문","256GB",NULL);
+insert into reservation (resKind ,name, phone, birth, appType, model, receive, storage, color) values ("사전예약","윤성환", "010-9928-8446","920220","신규가입","AIP15PM","방문","1TB","블랙");
