@@ -33,9 +33,9 @@ app.post("/reservation", async (req, res) => {
   if (model == "other") model = req.body.othermodel;
   try {
     const sql =
-      "INSERT INTO reservation (resTime, resKind, name, phone, birth, type, model, receive, storage, color) VALUES (NOW(), ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+      "INSERT INTO reservation (resTime, resKind, name, phone, birth, appType, model, receive, storage, color) VALUES (NOW(), ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     const values = [
-      req.body.resKind,
+      req.body.join_type,
       req.body.name,
       phone,
       req.body.birth,
@@ -71,7 +71,7 @@ app.post("/admin", async (req, res) => {
   if (password === correct_password) {
     try {
       const sql =
-        "SELECT name, phone, birth, type, model, storage ,color ,receive FROM reservation";
+        "SELECT DATE_FORMAT(DATE_ADD(resTime, INTERVAL 9 HOUR), '%Y-%m-%d %H:%i:%s') AS time, resKind, name, phone, birth, appType, model, receive, storage, color FROM reservation";
       const result = await db.query(sql);
       let table = "<table>";
       table += "<tr>";
@@ -89,12 +89,12 @@ app.post("/admin", async (req, res) => {
 
       result.forEach(function (item) {
         table += "<tr>";
-        table += `<td>${resTime.resKind || ""}</td>`;
+        table += `<td>${item.time || ""}</td>`;
         table += `<td>${item.resKind || ""}</td>`;
         table += `<td>${item.name || ""}</td>`;
         table += `<td>${item.phone || ""}</td>`;
         table += `<td>${item.birth || ""}</td>`;
-        table += `<td>${item.type || ""}</td>`;
+        table += `<td>${item.appType || ""}</td>`;
         table += `<td>${item.model || ""}</td>`;
         table += `<td>${item.storage || ""}</td>`;
         table += `<td>${item.color || ""}</td>`;

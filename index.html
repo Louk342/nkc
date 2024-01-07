@@ -1,379 +1,373 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <link rel="favicon" href="./img/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
-    <meta charset="UTF-8" />
-    <title>KT 아주대점</title>
-    <style>
-      @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
-      @import url(http://fonts.googleapis.com/earlyaccess/nanumbrushscript.css);
-      @import url(http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
-      @import url(http://fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
-      @import url(http://fonts.googleapis.com/earlyaccess/nanumpenscript.css);
-      @import url(https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap);
 
-      body {
-        line-height: 1;
-        margin: 0px auto;
-        max-width: 800px;
+<head>
+  <link rel="favicon" href="./img/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
+  <meta charset="UTF-8" />
+  <title>KT 아주대점</title>
+  <style>
+    @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+    @import url(http://fonts.googleapis.com/earlyaccess/nanumbrushscript.css);
+    @import url(http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
+    @import url(http://fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
+    @import url(http://fonts.googleapis.com/earlyaccess/nanumpenscript.css);
+    @import url(https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap);
+
+    body {
+      line-height: 1;
+      margin: 0px auto;
+      max-width: 800px;
+    }
+
+    nav {
+      margin: -px;
+    }
+
+    marquee {
+      font-size: small;
+      background-color: white;
+      border-radius: 15px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .body {
+      font-family: "NanumSquare";
+      background-color: #eeeeee;
+      margin: 0px auto 5px auto;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .nav-bar {
+      border-top: 3px solid #ff1e27;
+      display: flex;
+      justify-content: space-around;
+      list-style: none;
+      padding: 0px;
+      height: 50px;
+      margin: 0px;
+    }
+
+    .logo {
+      margin: auto 10px auto 10px;
+    }
+
+    .button {
+      background-color: #ff0000;
+      padding: 20px;
+      max-width: 170px;
+      border-radius: 15px;
+      margin: 10px auto;
+      cursor: pointer;
+    }
+
+    b {
+      color: red;
+    }
+
+    .link {
+      font-family: "Black Han Sans", sans-serif;
+    }
+
+    .button:hover {
+      opacity: 0.8;
+    }
+
+    .click {
+      animation: blink-effect 1s step-end infinite;
+    }
+
+    @keyframes blink-effect {
+      50% {
+        opacity: 0;
       }
+    }
 
-      nav {
-        margin: -px;
-      }
-
-      marquee {
-        font-size: small;
-        background-color: white;
-        border-radius: 15px;
-      }
-
-      a {
-        text-decoration: none;
-      }
-
-      .body {
-        font-family: "NanumSquare";
-        background-color: #eeeeee;
-        margin: 0px auto 5px auto;
-        padding: 10px;
-        text-align: center;
-      }
-
-      .nav-bar {
-        border-top: 3px solid #ff1e27;
-        display: flex;
-        justify-content: space-around;
-        list-style: none;
-        padding: 0px;
-        height: 50px;
-        margin: 0px;
-      }
-
-      .logo {
-        margin: auto 10px auto 10px;
-      }
-
-      .button {
-        background-color: #ff0000;
-        padding: 20px;
-        max-width: 170px;
-        border-radius: 15px;
-        margin: 10px auto;
-        cursor: pointer;
-      }
-
-      b {
-        color: red;
-      }
-
-      .link {
-        font-family: "Black Han Sans", sans-serif;
-      }
-
-      .button:hover {
-        opacity: 0.8;
-      }
-
-      .click {
-        animation: blink-effect 1s step-end infinite;
-      }
-
-      @keyframes blink-effect {
-        50% {
-          opacity: 0;
-        }
-      }
-
-      .slide {
-        /* layout */
-        display: flex;
-        flex-wrap: nowrap;
-        /* 컨테이너의 내용물이 컨테이너 크기(width, height)를 넘어설 때 보이지 않도록 하기 위해 hidden을 준다. */
-        overflow: hidden;
-
-        /* position */
-        /* slide_button의 position absolute가 컨테이너 안쪽에서 top, left, right offset이 적용될 수 있도록 relative를 준다. (기본값이 static인데, static인 경우 그 상위 컨테이너로 나가면서 현재 코드에선 html을 기준으로 offset을 적용시키기 때문) */
-        position: relative;
-
-        /* size */
-        width: 100%;
-
-        /* slide drag를 위해 DOM요소가 드래그로 선택되는것을 방지 */
-        user-select: none;
-      }
-
-      .slide_item {
-        background-size: contain;
-        /* 이미지 비율을 유지한 채로 보여주기 */
-        background-repeat: no-repeat;
-        /* 배경 이미지 반복 제거 */
-        background-position: center center;
-        /* 이미지를 가운데 정렬 */
-        width: 100%;
-        height: 0;
-        padding-top: calc(649 / 390 * 100%);
-        /* 16:9
+    .slide {
       /* layout */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 20px;
-        /* position - 버튼 클릭시 left offset값을 적용시키기 위해 */
-        position: relative;
-        left: 0px;
-        /* size */
-        width: 100%;
-        height: auto;
-        /* flex item의 flex-shrink는 기본값이 1이므로 컨테이너 크기에 맞게 줄어드는데, 슬라이드를 구현할 것이므로 줄어들지 않도록 0을 준다. */
-        flex-shrink: 0;
-        /* transition */
-        transition: left 0.15s;
-      }
+      display: flex;
+      flex-wrap: nowrap;
+      /* 컨테이너의 내용물이 컨테이너 크기(width, height)를 넘어설 때 보이지 않도록 하기 위해 hidden을 준다. */
+      overflow: hidden;
 
-      .slide_button {
-        /* layout */
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      /* position */
+      /* slide_button의 position absolute가 컨테이너 안쪽에서 top, left, right offset이 적용될 수 있도록 relative를 준다. (기본값이 static인데, static인 경우 그 상위 컨테이너로 나가면서 현재 코드에선 html을 기준으로 offset을 적용시키기 때문) */
+      position: relative;
 
-        /* position */
-        position: absolute;
-        /* 버튼이 중앙에 위치하게 하기위해 계산 */
-        top: calc(50% - 16px);
+      /* size */
+      width: 100%;
 
-        /* size */
-        width: 32px;
-        height: 32px;
+      /* slide drag를 위해 DOM요소가 드래그로 선택되는것을 방지 */
+      user-select: none;
+    }
 
-        /* style */
-        border-radius: 100%;
-        background-color: #cccc;
-        cursor: pointer;
-      }
+    .slide_item {
+      background-size: contain;
+      /* 이미지 비율을 유지한 채로 보여주기 */
+      background-repeat: no-repeat;
+      /* 배경 이미지 반복 제거 */
+      background-position: center center;
+      /* 이미지를 가운데 정렬 */
+      width: 100%;
+      height: 0;
+      padding-top: calc(649 / 390 * 100%);
+      /* 16:9
+      /* layout */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 20px;
+      /* position - 버튼 클릭시 left offset값을 적용시키기 위해 */
+      position: relative;
+      left: 0px;
+      /* size */
+      width: 100%;
+      height: auto;
+      /* flex item의 flex-shrink는 기본값이 1이므로 컨테이너 크기에 맞게 줄어드는데, 슬라이드를 구현할 것이므로 줄어들지 않도록 0을 준다. */
+      flex-shrink: 0;
+      /* transition */
+      transition: left 0.15s;
+    }
 
-      .slide_prev_button {
-        left: 10px;
-      }
+    .slide_button {
+      /* layout */
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-      .slide_next_button {
-        right: 10px;
-      }
+      /* position */
+      position: absolute;
+      /* 버튼이 중앙에 위치하게 하기위해 계산 */
+      top: calc(50% - 16px);
 
-      ul,
-      li {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-      }
+      /* size */
+      width: 32px;
+      height: 32px;
 
-      .slide_pagination {
-        /* layout */
-        display: flex;
-        gap: 5px;
+      /* style */
+      border-radius: 100%;
+      background-color: #cccc;
+      cursor: pointer;
+    }
 
-        /* position */
-        position: absolute;
-        bottom: 0;
-        /* left:50%, translateX(-50%)를 하면 가로 가운데로 위치시킬 수 있다. */
-        left: 50%;
-        transform: translateX(-50%);
-      }
+    .slide_prev_button {
+      left: 10px;
+    }
 
-      .slide_pagination > li {
-        /* 현재 슬라이드가 아닌 것은 투명도 부여 */
-        color: #7fb5ff88;
-        cursor: pointer;
-        font-size: 25px;
-      }
+    .slide_next_button {
+      right: 10px;
+    }
 
-      .slide_pagination > li.active {
-        /* 현재 슬라이드 색상은 투명도 없이 */
-        color: #7fb5ff;
-      }
+    ul,
+    li {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
 
-      .slide_item:nth-child(1) {
-        background-image: url("http://ajoodae.com/flip.jpg");
-        left: calc(100% * 0);
-      }
+    .slide_pagination {
+      /* layout */
+      display: flex;
+      gap: 5px;
 
-      .slide_item:nth-child(2) {
-        background-image: url("http://ajoodae.com/jump3.jpg");
-        left: calc(100% * 1);
-      }
+      /* position */
+      position: absolute;
+      bottom: 0;
+      /* left:50%, translateX(-50%)를 하면 가로 가운데로 위치시킬 수 있다. */
+      left: 50%;
+      transform: translateX(-50%);
+    }
 
-      .slide_item:nth-child(3) {
-        background-image: url("http://ajoodae.com/iphone.png");
-        left: calc(100% * 2);
-      }
+    .slide_pagination>li {
+      /* 현재 슬라이드가 아닌 것은 투명도 부여 */
+      color: #7fb5ff88;
+      cursor: pointer;
+      font-size: 25px;
+    }
 
-      .slide_item:nth-child(4) {
-        background-image: url("http://ajoodae.com/23.jpg");
-        left: calc(100% * 3);
-      }
-    </style>
-  </head>
+    .slide_pagination>li.active {
+      /* 현재 슬라이드 색상은 투명도 없이 */
+      color: #7fb5ff;
+    }
 
-  <body>
-    <nav>
-      <div class="nav-bar">
-        <img
-          class="logo"
-          src="https://cfm.kt.com/images/v2/layout/gnb-ktlogo.png"
-        />
-        <h3>아주대 공식 대리점</h3>
+    .slide_item:nth-child(1) {
+      background-image: url("http://ajoodae.com/24_1.jpg");
+      left: calc(100% * 0);
+    }
+
+    .slide_item:nth-child(2) {
+      background-image: url("http://ajoodae.com/24_2.jpg");
+      left: calc(100% * 1);
+    }
+
+    .slide_item:nth-child(3) {
+      background-image: url("http://ajoodae.com/flip.jpg");
+      left: calc(100% * 2);
+    }
+
+    .slide_item:nth-child(4) {
+      background-image: url("http://ajoodae.com/jump3.jpg");
+      left: calc(100% * 3);
+    }
+
+    .slide_item:nth-child(5) {
+      background-image: url("http://ajoodae.com/iphone.png");
+      left: calc(100% * 4);
+    }
+
+    .slide_item:nth-child(6) {
+      background-image: url("http://ajoodae.com/23.jpg");
+      left: calc(100% * 5);
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-bar">
+      <img class="logo" src="https://cfm.kt.com/images/v2/layout/gnb-ktlogo.png" />
+      <h3>아주대 공식 대리점</h3>
+    </div>
+  </nav>
+
+  <div class="body">
+    <div class="slide slide_wrap">
+      <div class="slide_item"></div>
+      <div class="slide_item"></div>
+      <div class="slide_item"></div>
+      <div class="slide_item"></div>
+      <div class="slide_item"></div>
+      <div class="slide_item"></div>
+      <div class="slide_prev_button slide_button">◀</div>
+      <div class="slide_next_button slide_button">▶</div>
+      <ul class="slide_pagination"></ul>
+    </div>
+    <script src="./slide.js"></script>
+    <h1>최근 상담 현황</h1>
+    <marquee direction="up" scrollamount="1" height="100">
+      <table border="0" cellpadding="0" cellspacing="10" align="center">
+        <tbody id="fakeData"></tbody>
+      </table>
+    </marquee>
+    <div>
+      <div id="button1" class="button" style="float: left">
+        <h2 style="margin: 0px; color: white">상담예약하기</h2>
       </div>
-    </nav>
-
-    <div class="body">
-      <div class="slide slide_wrap">
-        <div class="slide_item"></div>
-        <div class="slide_item"></div>
-        <div class="slide_item"></div>
-        <div class="slide_item"></div>
-        <div class="slide_prev_button slide_button">◀</div>
-        <div class="slide_next_button slide_button">▶</div>
-        <ul class="slide_pagination"></ul>
+      <div id="button2" class="button" style="float: right">
+        <h2 style="margin: 0px; color: white">사전예약하기</h2>
       </div>
-      <script src="./slide.js"></script>
-      <h1>최근 상담 현황</h1>
-      <marquee direction="up" scrollamount="1" height="100">
-        <table border="0" cellpadding="0" cellspacing="10" align="center">
-          <tbody id="fakeData"></tbody>
-        </table>
-      </marquee>
-      <div>
-        <div id="button1" class="button" style="float: left">
-          <h2 style="margin: 0px; color: white">상담예약하기</h2>
-        </div>
-        <div id="button2" class="button" style="float: right">
-          <h2 style="margin: 0px; color: white">사전예약하기</h2>
-        </div>
-      </div>
+    </div>
 
-      <h2 style="text-align: left; padding-left: 20px">매장문의</h2>
-      <div
-        style="
+    <h2 style="text-align: left; padding-left: 20px">매장문의</h2>
+    <div style="
           text-align: left;
           padding: 10px 20px;
           border-radius: 15px;
           background-color: white;
-        "
-      >
-        <p style="font-size: larger; margin: 0px">
-          📱 : 010-7705-9034 <b class="click">(Click)</b><br /><br />
-          📞 : 031-211-5518 <b class="click">(Click)</b><br /><br />
-          <a href="https://pf.kakao.com/_gxnKxcb"
-            ><img
-              src="http://ajoodae.com/kakaoCH.png"
-              style="max-width: 20px"
-            /><b id="link" style="color: black"> : 카카오채널</b
-            ><b class="click"> (Click)</b></a
-          ><br /><br />
-          <a href="https://blog.naver.com/ajoodae"
-            ><img
-              src="http://ajoodae.com/naverBlog.png"
-              style="max-width: 20px"
-            /><b id="link" style="color: black"> : 네이버 블로그</b
-            ><b class="click"> (Click)</b></a
-          ><br /><br />
-          <a
-            href="https://map.naver.com/p/search/kt%EC%95%84%EC%A3%BC%EB%8C%80%EC%A0%90/place/1128339994?placePath=?entry=pll&from=nx&fromNxList=true&c=14.00,0,0,0,dh"
-          >
-            <img src="http://ajoodae.com/naver.png" style="max-width: 20px" /><b
-              id="link"
-              style="color: black"
-            >
-              : 네이버지도</b
-            ><b class="click"> (Click)</b></a
-          ><br />
-        </p>
-      </div>
+        ">
+      <p style="font-size: larger; margin: 0px">
+        📱 : 010-7705-9034 <b class="click">(Click)</b><br /><br />
+        📞 : 031-211-5518 <b class="click">(Click)</b><br /><br />
+        <a href="https://pf.kakao.com/_gxnKxcb"><img src="http://ajoodae.com/kakaoCH.png" style="max-width: 20px" /><b
+            id="link" style="color: black"> : 카카오채널</b><b class="click"> (Click)</b></a><br /><br />
+        <a href="https://blog.naver.com/ajoodae"><img src="http://ajoodae.com/naverBlog.png"
+            style="max-width: 20px" /><b id="link" style="color: black"> : 네이버 블로그</b><b class="click">
+            (Click)</b></a><br /><br />
+        <a
+          href="https://map.naver.com/p/search/kt%EC%95%84%EC%A3%BC%EB%8C%80%EC%A0%90/place/1128339994?placePath=?entry=pll&from=nx&fromNxList=true&c=14.00,0,0,0,dh">
+          <img src="http://ajoodae.com/naver.png" style="max-width: 20px" /><b id="link" style="color: black">
+            : 네이버지도</b><b class="click"> (Click)</b></a><br />
+      </p>
     </div>
-  </body>
+  </div>
+</body>
 
-  <script>
-    addFakeData();
-    //상담예약
-    document.getElementById("button1").addEventListener("click", function () {
-      window.location.href = "/conRes";
-    });
-    //사전예약
-    document.getElementById("button2").addEventListener("click", function () {
-      window.location.href = "/advRes";
-    });
+<script>
+  addFakeData();
+  //상담예약
+  document.getElementById("button1").addEventListener("click", function () {
+    window.location.href = "/conRes";
+  });
+  //사전예약
+  document.getElementById("button2").addEventListener("click", function () {
+    window.location.href = "/advRes";
+  });
 
-    // 이름 생성 함수 (랜덤으로 성씨와 이름 조합)
-    function generateName() {
-      const lastNames = ["김", "이", "박", "최", "정", "한", "오"];
-      const randomLastName =
-        lastNames[Math.floor(Math.random() * lastNames.length)];
-      return randomLastName + "**";
-    }
+  // 이름 생성 함수 (랜덤으로 성씨와 이름 조합)
+  function generateName() {
+    const lastNames = ["김", "이", "박", "최", "정", "한", "오"];
+    const randomLastName =
+      lastNames[Math.floor(Math.random() * lastNames.length)];
+    return randomLastName + "**";
+  }
 
-    // 랜덤 전화번호 생성 함수
-    function generatePhoneNumber() {
-      const randomNumber = () =>
-        Math.floor(Math.random() * 10000)
-          .toString()
-          .padStart(4, "0");
-      return `010 - **** - ${randomNumber()}`;
-    }
+  // 랜덤 전화번호 생성 함수
+  function generatePhoneNumber() {
+    const randomNumber = () =>
+      Math.floor(Math.random() * 10000)
+        .toString()
+        .padStart(4, "0");
+    return `010 - **** - ${randomNumber()}`;
+  }
 
-    // 모델 이름 생성 함수
-    function generateModel() {
-      const models = [
-        "아이폰15",
-        "아이폰15플러스",
-        "아이폰15프로",
-        "아이폰15프로맥스",
-        "S23",
-        "S23+",
-        "S23Ultra",
-        "플립5",
-        "폴드5",
-        "S24",
-        "S24+",
-        "S24Ultra",
-      ];
-      return models[Math.floor(Math.random() * models.length)];
-    }
+  // 모델 이름 생성 함수
+  function generateModel() {
+    const models = [
+      "아이폰15",
+      "아이폰15플러스",
+      "아이폰15프로",
+      "아이폰15프로맥스",
+      "S23",
+      "S23+",
+      "S23Ultra",
+      "플립5",
+      "폴드5",
+      "S24",
+      "S24+",
+      "S24Ultra",
+    ];
+    return models[Math.floor(Math.random() * models.length)];
+  }
 
-    // 가짜 데이터 추가 함수
-    function addFakeData() {
-      const tableBody = document.getElementById("fakeData");
-      const endDate = new Date(); // 오늘 날짜
-      endDate.setDate(endDate.getDate() - 1); // 어제로 설정
-      const startDate = new Date(endDate); // 시작일은 어제
+  // 가짜 데이터 추가 함수
+  function addFakeData() {
+    const tableBody = document.getElementById("fakeData");
+    const endDate = new Date(); // 오늘 날짜
+    endDate.setDate(endDate.getDate() - 1); // 어제로 설정
+    const startDate = new Date(endDate); // 시작일은 어제
 
-      startDate.setDate(startDate.getDate() - 5); // 10일 전으로 설정
+    startDate.setDate(startDate.getDate() - 5); // 10일 전으로 설정
 
-      while (startDate <= endDate) {
-        const dataCount = Math.floor(Math.random() * 5) + 1; // 하루에 생성할 가짜 데이터 수
-        for (let i = 0; i < dataCount; i++) {
-          const name = generateName();
-          const phone = generatePhoneNumber();
-          const model = generateModel();
+    while (startDate <= endDate) {
+      const dataCount = Math.floor(Math.random() * 5) + 1; // 하루에 생성할 가짜 데이터 수
+      for (let i = 0; i < dataCount; i++) {
+        const name = generateName();
+        const phone = generatePhoneNumber();
+        const model = generateModel();
 
-          const newRow = document.createElement("tr");
-          newRow.innerHTML = `
+        const newRow = document.createElement("tr");
+        newRow.innerHTML = `
                   <td class="list_date_new">${startDate.getFullYear()}-${String(
-            startDate.getMonth() + 1
-          ).padStart(2, "0")}-${String(startDate.getDate()).padStart(
-            2,
-            "0"
-          )}</td>
+          startDate.getMonth() + 1
+        ).padStart(2, "0")}-${String(startDate.getDate()).padStart(
+          2,
+          "0"
+        )}</td>
                   <td class="list_name_new">${name}</td>
                   <td class="list_phone">${phone}</td>
                   <td class="list_model_new">${model}</td>
                 `;
 
-          tableBody.appendChild(newRow);
-        }
-        startDate.setDate(startDate.getDate() + 1); // 다음 날짜로 이동
+        tableBody.appendChild(newRow);
       }
+      startDate.setDate(startDate.getDate() + 1); // 다음 날짜로 이동
     }
-  </script>
+  }
+</script>
+
 </html>
