@@ -35,7 +35,7 @@ app.post("/reservation", async (req, res) => {
     const sql =
       "INSERT INTO reservation (resTime, resKind, name, phone, birth, appType, model, receive, storage, color) VALUES (NOW(), ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     const values = [
-      req.body.join_type,
+      req.body.resKind,
       req.body.name,
       phone,
       req.body.birth,
